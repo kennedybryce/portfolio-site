@@ -1,11 +1,47 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroHello from "../components/HeroHello";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout title="Home – Bryce Kennedy">
+  <section class="max-w-5xl mx-auto px-4 py-16 md:py-24">
+    <div class="grid gap-12 md:grid-cols-[minmax(0,2fr)_minmax(0,1.4fr)] items-center">
+      <div class="space-y-6">
+        <p class="text-xs uppercase tracking-[0.25em] text-sky-300/80">
+          UX Engineering · Frontend · Systems
+        </p>
+
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight">
+          I build reliable, high-visibility interfaces for complex systems.
+        </h1>
+
+        <p class="text-slate-300 max-w-xl text-sm md:text-base">
+          I’m a UX-minded engineer with deep experience in Angular, intranet platforms,
+          and digital signage systems. I design and implement integrations that
+          keep enterprise experiences fast, consistent, and maintainable.
+        </p>
+
+        <div class="flex flex-wrap gap-3 text-sm">
+          <a
+            href="/projects"
+            class="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-sky-400/70
+                   bg-sky-500/10 hover:bg-sky-500/20 hover:border-sky-300 transition"
+          >
+            View projects
+          </a>
+          <a
+            href="/about"
+            class="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-slate-700
+                   hover:border-slate-500 transition"
+          >
+            About me
+          </a>
+        </div>
+      </div>
+
+      <div class="border border-slate-800/80 rounded-2xl bg-slate-900/60 p-4 md:p-6">
+        <HeroHello client:visible />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
