@@ -9,7 +9,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   integrations: [react()],
   site: 'https://kennedybryce.github.io/portfolio-site',
-  base: '/',
+  base: import.meta.env.PROD ? "/portfolio-site" : "/",
   vite: {
     plugins: [tailwindcss()]
   }
