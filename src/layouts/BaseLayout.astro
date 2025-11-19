@@ -1,41 +1,58 @@
 ---
 interface Props {
-  title?: string;
+    title?: string;
 }
 
 const { title = "Bryce Kennedy – Portfolio" } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>{title}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-  <body class="min-h-screen bg-slate-950 text-slate-100">
-    <div class="min-h-screen flex flex-col">
-      <header class="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur">
-        <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-          <a href="/" class="font-semibold tracking-tight">
-            Bryce Kennedy
-          </a>
-          <nav class="flex gap-4 text-sm">
-            <a href="/projects" class="hover:text-sky-300 transition-colors">Projects</a>
-            <a href="/about" class="hover:text-sky-300 transition-colors">About</a>
-          </nav>
-        </div>
-      </header>
+    <head>
+        <meta charset="utf-8" />
+        <title>{title}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body class="min-h-screen bg-slate-950 text-slate-100">
+        <div class="min-h-screen flex flex-col">
+            <header
+                class="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur"
+            >
+                <div
+                    class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between"
+                >
+                    <a href="/" class="font-semibold tracking-tight">
+                        Bryce Kennedy
+                    </a>
+                    <nav class="flex gap-4 text-sm">
+                        <a
+                            href={`${base}projects/`}
+                            class="hover:text-sky-300 transition-colors"
+                        >
+                            Projects
+                        </a>
+                        <a
+                            href={`${base}about/`}
+                            class="hover:text-sky-300 transition-colors"
+                        >
+                            About
+                        </a>
+                    </nav>
+                </div>
+            </header>
 
-      <main class="flex-1">
-        <slot />
-      </main>
+            <main class="flex-1">
+                <slot />
+            </main>
 
-      <footer class="border-t border-slate-800/80 py-4 text-xs text-slate-400">
-        <div class="max-w-5xl mx-auto px-4 flex justify-between">
-          <span>© {new Date().getFullYear()} Bryce Kennedy</span>
-          <span>Built with Astro + React</span>
+            <footer
+                class="border-t border-slate-800/80 py-4 text-xs text-slate-400"
+            >
+                <div class="max-w-5xl mx-auto px-4 flex justify-between">
+                    <span>© {new Date().getFullYear()} Bryce Kennedy</span>
+                    <span>Built with Astro + React</span>
+                </div>
+            </footer>
         </div>
-      </footer>
-    </div>
-  </body>
+    </body>
 </html>

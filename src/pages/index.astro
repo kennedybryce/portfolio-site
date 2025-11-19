@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HeroHello from "../components/HeroHello";
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Home – Bryce Kennedy">
@@ -23,14 +25,14 @@ import HeroHello from "../components/HeroHello";
 
         <div class="flex flex-wrap gap-3 text-sm">
           <a
-            href="/projects"
+			href={`${base}projects/`}
             class="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-sky-400/70
                    bg-sky-500/10 hover:bg-sky-500/20 hover:border-sky-300 transition"
           >
             View projects
           </a>
           <a
-            href="/about"
+			href={`${base}about/`}
             class="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-slate-700
                    hover:border-slate-500 transition"
           >
