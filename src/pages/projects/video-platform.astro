@@ -1,0 +1,93 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Video Platform Integration – Bryce Kennedy">
+  <article class="max-w-4xl mx-auto px-4 py-16 md:py-20">
+    <!-- Back Navigation -->
+    <a 
+      href="/#projects" 
+      class="inline-flex items-center gap-2 text-sm text-slate-300 hover:text-brand-orange transition-colors mb-8"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m15 18-6-6 6-6"/>
+      </svg>
+      Back to projects
+    </a>
+
+    <!-- Project Header -->
+    <header class="space-y-4 mb-12">
+      <div class="flex flex-wrap gap-2 text-xs mb-4">
+        <span class="px-2 py-1 bg-gray-dark/50 rounded">JavaScript</span>
+        <span class="px-2 py-1 bg-gray-dark/50 rounded">API</span>
+        <span class="px-2 py-1 bg-gray-dark/50 rounded">Video</span>
+      </div>
+      
+      <h1 class="text-3xl md:text-4xl font-semibold">Video Platform Integration</h1>
+      
+      <p class="text-lg text-slate-300">
+        Integrated Brightcove video platform with custom UI components and analytics tracking for enterprise content delivery.
+      </p>
+    </header>
+
+    <!-- Project Content -->
+    <div class="prose prose-invert prose-slate max-w-none space-y-8">
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Overview</h2>
+        <p class="text-slate-300">
+          Implemented a comprehensive video content delivery system integrating Brightcove's video platform 
+          with American Airlines' intranet, enabling seamless video streaming for training, communications, 
+          and operational content.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Challenge</h2>
+        <p class="text-slate-300">
+          The organization needed to:
+        </p>
+        <ul class="list-disc list-inside space-y-2 text-slate-300 ml-4">
+          <li>Integrate Brightcove video player into existing Angular applications</li>
+          <li>Build custom video browsing and search interfaces</li>
+          <li>Track detailed analytics on video engagement</li>
+          <li>Ensure accessibility compliance for all video content</li>
+          <li>Optimize video delivery for varying network conditions</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Solution</h2>
+        <p class="text-slate-300">
+          I developed a comprehensive integration that included:
+        </p>
+        <ul class="list-disc list-inside space-y-2 text-slate-300 ml-4">
+          <li>Custom Angular components wrapping Brightcove's player API</li>
+          <li>Video catalog interface with advanced filtering and search</li>
+          <li>Analytics integration tracking view duration, completion rates, and engagement</li>
+          <li>Automated closed captioning and transcript generation pipeline</li>
+          <li>Adaptive bitrate streaming optimization based on network conditions</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Results</h2>
+        <p class="text-slate-300">
+          The video platform now serves over 50,000 active users monthly, with an average view completion 
+          rate of 87%. The custom analytics have enabled content creators to optimize their videos based 
+          on detailed engagement metrics.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Technologies Used</h2>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full text-sm">JavaScript</span>
+          <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full text-sm">Brightcove API</span>
+          <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full text-sm">Angular</span>
+          <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full text-sm">Google Analytics</span>
+          <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full text-sm">HLS</span>
+        </div>
+      </section>
+    </div>
+  </article>
+</BaseLayout>

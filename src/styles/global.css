@@ -1,1 +1,22 @@
 @import "tailwindcss";
+
+@theme {
+  --color-brand-orange: #FA4816;
+  --color-gray-light: #E0E0E0;
+  --color-gray-medium: #BFBAB6;
+  --color-gray-dark: #54565A;
+  --color-gray-black: #1C1C1C;
+  --color-surface-dark: #1C1C1C;
+  --color-surface-card: #2A2A2A;
+  --color-text-light: #E0E0E0;
+  --color-text-muted: #BFBAB6;
+}
+
+/* OPTIONAL: basic smoothing */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}

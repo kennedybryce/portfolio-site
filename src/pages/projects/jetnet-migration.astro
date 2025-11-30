@@ -1,0 +1,92 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Jetnet Migration – Bryce Kennedy">
+  <article class="max-w-4xl mx-auto px-4 py-16 md:py-20">
+    <!-- Back Navigation -->
+    <a 
+      href="/#projects" 
+      class="inline-flex items-center gap-2 text-sm text-slate-300 hover:text-brand-orange transition-colors mb-8"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m15 18-6-6 6-6"/>
+      </svg>
+      Back to projects
+    </a>
+
+    <!-- Project Header -->
+    <header class="space-y-4 mb-12">
+      <div class="flex flex-wrap gap-2 text-xs mb-4">
+        <span class="px-2 py-1 bg-gray-dark/50 rounded">Angular</span>
+        <span class="px-2 py-1 bg-gray-dark/50 rounded">TypeScript</span>
+        <span class="px-2 py-1 bg-gray-dark/50 rounded">Integration</span>
+      </div>
+      
+      <h1 class="text-3xl md:text-4xl font-semibold">Jetnet Migration</h1>
+      
+      <p class="text-lg text-slate-300">
+        Led the migration from legacy intranet platform to Unily, handling complex integrations and ensuring seamless transition.
+      </p>
+    </header>
+
+    <!-- Project Content -->
+    <div class="prose prose-invert prose-slate max-w-none space-y-8">
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Overview</h2>
+        <p class="text-slate-300">
+          This project involved migrating American Airlines' internal intranet from a legacy platform to Unily, 
+          a modern enterprise social network. The challenge was to maintain business continuity while upgrading 
+          the technology stack and improving user experience.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Challenge</h2>
+        <p class="text-slate-300">
+          The existing Jetnet platform had grown organically over many years, resulting in:
+        </p>
+        <ul class="list-disc list-inside space-y-2 text-slate-300 ml-4">
+          <li>Complex custom integrations that needed to be preserved</li>
+          <li>Thousands of content pages requiring migration</li>
+          <li>High-traffic enterprise applications that couldn't experience downtime</li>
+          <li>Multiple teams with varying technical capabilities needing training</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Solution</h2>
+        <p class="text-slate-300">
+          I led the technical implementation, focusing on:
+        </p>
+        <ul class="list-disc list-inside space-y-2 text-slate-300 ml-4">
+          <li>Building custom Angular components to match existing functionality</li>
+          <li>Creating integration adapters for legacy systems</li>
+          <li>Developing automated content migration tools</li>
+          <li>Establishing testing protocols to ensure feature parity</li>
+          <li>Training and documentation for content authors and developers</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Results</h2>
+        <p class="text-slate-300">
+          The migration was completed on schedule with minimal disruption. The new platform provided 
+          improved performance, better mobile experience, and a more maintainable codebase for future 
+          enhancements.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Technologies Used</h2>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full text-sm">Angular</span>
+          <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full text-sm">TypeScript</span>
+          <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full text-sm">Unily Platform</span>
+          <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full text-sm">REST APIs</span>
+          <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full text-sm">Node.js</span>
+        </div>
+      </section>
+    </div>
+  </article>
+</BaseLayout>

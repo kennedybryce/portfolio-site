@@ -1,48 +1,201 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import HeroHello from "../components/HeroHello";
+import RiveIconButton from "../components/RiveIconButton";
 
 const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Home – Bryce Kennedy">
   <section class="max-w-5xl mx-auto px-4 py-16 md:py-24">
-    <div class="grid gap-12 md:grid-cols-[minmax(0,2fr)_minmax(0,1.4fr)] items-center">
+    <div
+      class="grid gap-12 md:grid-cols-[minmax(0,2fr)_minmax(0,1.4fr)] items-center"
+    >
       <div class="space-y-6">
         <p class="text-xs uppercase tracking-[0.25em] text-sky-300/80">
           UX Engineering · Frontend · Systems
         </p>
 
-        <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight">
+        <h1
+          class="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight"
+        >
           I build reliable, high-visibility interfaces for complex systems.
         </h1>
 
         <p class="text-slate-300 max-w-xl text-sm md:text-base">
-          I’m a UX-minded engineer with deep experience in Angular, intranet platforms,
-          and digital signage systems. I design and implement integrations that
-          keep enterprise experiences fast, consistent, and maintainable.
+          I’m a UX-minded engineer with deep experience in Angular, intranet
+          platforms, and digital signage systems. I design and implement
+          integrations that keep enterprise experiences fast, consistent, and
+          maintainable.
         </p>
 
         <div class="flex flex-wrap gap-3 text-sm">
           <a
-			href={`${base}projects/`}
-            class="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-sky-400/70
-                   bg-sky-500/10 hover:bg-sky-500/20 hover:border-sky-300 transition"
+            href="#projects"
+            class="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-brand-orange
+         bg-brand-orange text-gray-black hover:opacity-90 transition"
           >
             View projects
           </a>
+
           <a
-			href={`${base}about/`}
-            class="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-slate-700
-                   hover:border-slate-500 transition"
+            href="#about"
+            class="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-gray-dark
+         text-text-light hover:text-brand-orange hover:border-brand-orange transition"
           >
             About me
           </a>
         </div>
-      </div>
 
-      <div class="border border-slate-800/80 rounded-2xl bg-slate-900/60 p-4 md:p-6">
-        <HeroHello client:visible />
+        <!-- Row of Rive icon buttons -->
+        <div class="flex gap-3 pt-4">
+          <RiveIconButton
+            client:load
+            artboard="calendar"
+            stateMachine="State Machine 1"
+            clickInputName="calendarClicked"
+            href="mailto:you@example.com"
+            label="Email Bryce"
+          />
+          <RiveIconButton
+            client:load
+            artboard="calendar"
+            stateMachine="State Machine 1"
+            clickInputName="calendarClicked"
+            href="mailto:you@example.com"
+            label="Email Bryce"
+          />
+        </div>
+
+        <div class="max-w-md md:max-w-none mx-auto">
+          <!-- <HeroRive client:load /> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="max-w-5xl mx-auto px-4 py-16 md:py-20 space-y-8">
+    <div class="space-y-4">
+      <h2 class="text-2xl md:text-3xl font-semibold">Projects</h2>
+      <p class="text-slate-300 text-sm md:text-base max-w-2xl">
+        This is where we'll showcase your case studies: Jetnet → Unily migration,
+        digital signage platform, Brightcove integrations, LivePerson, and more.
+      </p>
+    </div>
+
+    <!-- Project Cards Grid -->
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-8">
+      <!-- Project Card 1 -->
+      <a 
+        href="/projects/jetnet-migration" 
+        class="bg-surface-card border border-gray-dark/70 rounded-lg overflow-hidden hover:border-brand-orange/50 transition block group"
+      >
+        <div class="aspect-video bg-gray-dark/30 overflow-hidden">
+          <img 
+            src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGp4OHFqZ2V3Ym1rYnA1YzN4OHJ2NzBpNmZvMDN3ZWx2NjB3bjB3YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKMt1VVNkHV2PaE/giphy.gif"
+            alt="Jetnet Migration preview"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        <div class="p-6 space-y-3">
+          <h3 class="text-lg font-semibold group-hover:text-brand-orange transition-colors">Jetnet Migration</h3>
+          <p class="text-sm text-slate-300">
+            Led the migration from legacy intranet platform to Unily, handling complex integrations and ensuring seamless transition.
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-2 py-1 bg-gray-dark/50 rounded">Angular</span>
+            <span class="px-2 py-1 bg-gray-dark/50 rounded">TypeScript</span>
+            <span class="px-2 py-1 bg-gray-dark/50 rounded">Integration</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project Card 2 -->
+      <a 
+        href="/projects/digital-signage" 
+        class="bg-surface-card border border-gray-dark/70 rounded-lg overflow-hidden hover:border-brand-orange/50 transition block group"
+      >
+        <div class="aspect-video bg-gray-dark/30 overflow-hidden">
+          <img 
+            src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExanVsMTQyeHB5MmN5NnZzajdvcGdoNXZseHlhemFjNjhsNjdtYWJvOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT9IgzoKnwFNmISR8I/giphy.gif"
+            alt="Digital Signage System preview"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        <div class="p-6 space-y-3">
+          <h3 class="text-lg font-semibold group-hover:text-brand-orange transition-colors">Digital Signage System</h3>
+          <p class="text-sm text-slate-300">
+            Built and maintained a high-visibility digital signage platform serving thousands of displays across the enterprise.
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-2 py-1 bg-gray-dark/50 rounded">React</span>
+            <span class="px-2 py-1 bg-gray-dark/50 rounded">Real-time</span>
+            <span class="px-2 py-1 bg-gray-dark/50 rounded">CMS</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project Card 3 -->
+      <a 
+        href="/projects/video-platform" 
+        class="bg-surface-card border border-gray-dark/70 rounded-lg overflow-hidden hover:border-brand-orange/50 transition block group"
+      >
+        <div class="aspect-video bg-gray-dark/30 overflow-hidden">
+          <img 
+            src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnZuZXI3Nm1wZjR1YWM2NGlpeTNhMGQyZ3NlNmU3eXV0Mmc0dWtvciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o6ZtpWvwnhf34Oj0A/giphy.gif"
+            alt="Video Platform Integration preview"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        <div class="p-6 space-y-3">
+          <h3 class="text-lg font-semibold group-hover:text-brand-orange transition-colors">Video Platform Integration</h3>
+          <p class="text-sm text-slate-300">
+            Integrated Brightcove video platform with custom UI components and analytics tracking for enterprise content delivery.
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-2 py-1 bg-gray-dark/50 rounded">JavaScript</span>
+            <span class="px-2 py-1 bg-gray-dark/50 rounded">API</span>
+            <span class="px-2 py-1 bg-gray-dark/50 rounded">Video</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="max-w-3xl mx-auto px-4 py-16 md:py-20 space-y-6">
+    <h2 class="text-2xl md:text-3xl font-semibold">About</h2>
+    <div class="space-y-4 text-slate-300 text-sm md:text-base">
+      <p>
+        I'm a UX-minded engineer who's spent the last several years building and
+        maintaining high-visibility internal tools, intranet experiences, and
+        digital signage systems.
+      </p>
+      <p>
+        My work at American Airlines has focused on creating reliable, scalable
+        solutions using modern frameworks like Angular, React, and Astro. I specialize
+        in complex integrations, content management systems, and building tools that
+        make developers' lives easier.
+      </p>
+      <p>
+        When I'm not coding, I explore creative projects combining technology with
+        design—from building WordPress themes with Advanced Custom Fields to creating
+        interactive animations with Rive.
+      </p>
+    </div>
+
+    <!-- Skills/Tech -->
+    <div class="mt-8 space-y-3">
+      <h3 class="text-lg font-semibold">Tech & Tools</h3>
+      <div class="flex flex-wrap gap-2 text-sm">
+        <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full">Angular</span>
+        <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full">React</span>
+        <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full">TypeScript</span>
+        <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full">Astro</span>
+        <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full">Node.js</span>
+        <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full">WordPress</span>
+        <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full">Rive</span>
+        <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full">Tailwind CSS</span>
       </div>
     </div>
   </section>
