@@ -3,36 +3,233 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Digital Signage System – Bryce Kennedy">
-  <article class="max-w-4xl mx-auto px-4 py-16 md:py-20">
-    <!-- Back Navigation -->
-    <a 
-      href="../#projects" 
-      class="inline-flex items-center gap-2 text-sm text-slate-300 hover:text-brand-orange transition-colors mb-8"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="m15 18-6-6 6-6"/>
-      </svg>
-      Back to projects
-    </a>
+    <article class="max-w-4xl mx-auto px-4 py-16 md:py-20">
+        <!-- Back Navigation -->
+        <a
+            href="../#projects"
+            class="inline-flex items-center gap-2 text-sm text-slate-300 hover:text-brand-orange transition-colors mb-8"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <path d="m15 18-6-6 6-6"></path>
+            </svg>
+            Back to projects
+        </a>
 
-    <!-- Project Header -->
-    <header class="space-y-4 mb-12">
-      <div class="flex flex-wrap gap-2 text-xs mb-4">
-        <span class="px-2 py-1 bg-gray-dark/50 rounded">React</span>
-        <span class="px-2 py-1 bg-gray-dark/50 rounded">Real-time</span>
-        <span class="px-2 py-1 bg-gray-dark/50 rounded">CMS</span>
-      </div>
-      
-      <h1 class="text-3xl md:text-4xl font-semibold">Digital Signage System</h1>
-      
-      <p class="text-lg text-slate-300">
-        Built and maintained a high-visibility digital signage platform serving thousands of displays across the enterprise.
-      </p>
-    </header>
+        <!-- Project Header -->
+        <header class="space-y-4 mb-12">
+            <div class="flex flex-wrap gap-2 text-xs mb-4">
+                <span class="px-2 py-1 bg-gray-dark/50 rounded">React</span>
+                <span class="px-2 py-1 bg-gray-dark/50 rounded">Real-time</span>
+                <span class="px-2 py-1 bg-gray-dark/50 rounded">CMS</span>
+            </div>
 
-    <!-- Project Content -->
-    <div class="prose prose-invert prose-slate max-w-none space-y-8">
-      <section>
+            <h1 class="text-3xl md:text-4xl font-semibold">
+                Digital Signage System
+            </h1>
+
+            <p class="text-lg text-slate-300">
+                Built and maintained a high-visibility digital signage platform
+                serving thousands of displays across the enterprise.
+            </p>
+        </header>
+
+        <!-- Project Content -->
+        <div class="prose prose-invert prose-slate max-w-none space-y-8">
+            <section id="case-digital-signage" class="case">
+                <header class="case-header">
+                    <h2>Digital Signage CMS for American Airlines</h2>
+                    <p class="case-summary">
+                        As part of American Airlines’ new corporate campus
+                        initiative, I developed a
+                        <strong
+                            >custom digital signage content management system</strong
+                        > to power a network of over 100 screens and six large-format
+                        LED displays across multiple buildings and global offices.
+                        Off-the-shelf signage solutions couldn’t meet the need for
+                        creative flexibility, real-time data integration, and centralized
+                        control—so I built one from the ground up. Using a
+                        <strong>heavily customized WordPress foundation</strong
+                        >, the platform lets Corporate Communications schedule,
+                        manage, and animate content seamlessly across
+                        devices—from small embedded screens to massive LED
+                        walls—supporting <strong
+                            >HD video, live API data feeds, and continuous 24/7
+                            playback</strong
+                        > with strict brand consistency and performance optimization.
+                    </p>
+                </header>
+
+                <section id="requirements-and-challenges" class="case-section">
+                    <h3>Requirements &amp; Challenges</h3>
+                    <p>
+                        When American Airlines opened its new corporate campus,
+                        it created an opportunity to reimagine employee
+                        engagement through real-time data, immersive multimedia,
+                        and large-scale digital experiences. The buildings were
+                        equipped with a network of information screens and
+                        several large-format LED displays—high-impact visual
+                        canvases designed to bring culture and communications to
+                        life.
+                    </p>
+                    <p>
+                        The Corporate Communications team needed a centralized
+                        system to
+                        <strong>control, curate, and schedule content</strong> across
+                        this growing digital ecosystem. Existing signage products
+                        offered useful features, but not the level of <strong
+                            >customization, scalability, and creative
+                            flexibility</strong
+                        > required. A <strong>bespoke CMS</strong> was necessary—capable
+                        of managing hundreds of displays, accommodating diverse hardware,
+                        and delivering dynamic, brand-consistent content 24/7.
+                    </p>
+                    <p>
+                        Six large-format LED displays—each roughly the size of a
+                        shipping container
+                        <!-- TODO: insert exact dimensions here, e.g., 9.6m × 2.7m -->
+                        —were installed across the campus, including a centerpiece
+                        at the main entrance. These displays welcome visitors and
+                        keep employees informed with motion graphics, streaming video,
+                        and real-time data visualizations. They needed to operate
+                        continuously and transition smoothly between media types
+                        while maintaining brand fidelity.
+                    </p>
+                    <p>
+                        Beyond the headline displays, a network of <strong
+                            >100+ smaller screens</strong
+                        > was deployed throughout the campus <!-- TODO: insert exact sizes here -->,
+                        with hundreds more in hubs and offices worldwide. These
+                        localized screens deliver real-time updates, performance
+                        metrics, and employee communications tailored to each
+                        location. Hardware diversity was a major challenge: LED
+                        walls ran on high-performance PCs, while smaller
+                        displays relied on lightweight embedded
+                        devices—demanding a <strong
+                            >dual-architecture approach</strong
+                        > to preserve visual quality and interactivity across environments.
+                    </p>
+                </section>
+
+                <section id="solution-and-implementation" class="case-section">
+                    <h3>Solution &amp; Implementation</h3>
+                    <p>
+                        The solution was built on a <strong
+                            >highly customized WordPress platform</strong
+                        >, chosen for its reliability, extensibility, and proven
+                        track record with internal tools. The admin interface
+                        was <strong>redesigned end-to-end</strong> to create a purpose-built
+                        content experience tailored to editors and corporate communicators.
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Custom types &amp; themes:</strong> Structured
+                            support for full-screen images, looping videos, live
+                            data feeds, and performance dashboards.
+                        </li>
+                        <li>
+                            <strong>Bespoke plugins:</strong> Advanced scheduling
+                            and playback control (by time, location, or screen type),
+                            <strong>data integrations</strong> to internal APIs,
+                            and automated content delivery/optimization.
+                        </li>
+                        <li>
+                            <strong>“News grid” layout:</strong> Coordinated regions
+                            capable of <strong
+                                >multiple simultaneous video streams and
+                                animations</strong
+                            >, with smooth transitions and brand-safe motion.
+                        </li>
+                        <li>
+                            <strong>Dual-architecture delivery:</strong> Optimized
+                            pipelines for both PC-driven LED walls and lower-power
+                            embedded players, ensuring consistent fidelity and frame
+                            pacing.
+                        </li>
+                    </ul>
+                    <p>
+                        Despite the complexity under the hood, the editorial
+                        experience remained intuitive and fast, enabling
+                        non-technical users to launch and manage content with
+                        confidence.
+                    </p>
+                </section>
+
+                <section id="results-and-impact" class="case-section">
+                    <h3>Results &amp; Impact</h3>
+                    <ul>
+                        <li>
+                            <strong>Unified control:</strong> The communications
+                            team manages every display from a single, streamlined
+                            dashboard—scheduling campaigns, swapping content, and
+                            triggering live updates.
+                        </li>
+                        <li>
+                            <strong>24/7 reliability:</strong> Continuous operation
+                            with minimal downtime, handling HD video, data visualizations,
+                            and motion graphics concurrently.
+                        </li>
+                        <li>
+                            <strong>Brand consistency at scale:</strong> Smooth transitions
+                            and templated motion ensure a cohesive visual language
+                            across hardware profiles.
+                        </li>
+                        <li>
+                            <strong>Showcase installations:</strong> Large-format
+                            LED walls became campus landmarks, greeting guests and
+                            energizing employee spaces with dynamic content.
+                        </li>
+                        <li>
+                            <strong>Foundation for growth:</strong> The CMS continues
+                            to support expansion to additional hubs and offices,
+                            demonstrating long-term adaptability.
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="role-and-responsibilities" class="case-section">
+                    <h3>Role &amp; Responsibilities</h3>
+                    <ul>
+                        <li>
+                            <strong
+                                >Platform architecture &amp; development:</strong
+                            > Designed and built a custom WordPress-based CMS to
+                            manage hundreds of screens and content types.
+                        </li>
+                        <li>
+                            <strong>Custom plugin engineering:</strong> Scheduling/playback
+                            automation and integrations with live data APIs for dynamic
+                            content.
+                        </li>
+                        <li>
+                            <strong>Admin UX design:</strong> Reimagined WordPress
+                            admin into a focused, brand-specific control center optimized
+                            for editor workflow.
+                        </li>
+                        <li>
+                            <strong>Performance optimization:</strong> Caching, asset
+                            delivery, and media tuning to support multiple concurrent
+                            video streams and animations—even on embedded devices.
+                        </li>
+                        <li>
+                            <strong>Cross-team collaboration:</strong> Worked with
+                            Corporate Communications, IT, and Facilities to align
+                            technical capabilities with brand and operational goals.
+                        </li>
+                    </ul>
+                </section>
+            </section>
+
+            <!-- <section>
         <h2 class="text-2xl font-semibold mb-4">Overview</h2>
         <p class="text-slate-300">
           Designed and implemented a comprehensive digital signage platform that powers displays in airports, 
@@ -87,7 +284,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
           <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full text-sm">Redis</span>
           <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full text-sm">PostgreSQL</span>
         </div>
-      </section>
-    </div>
-  </article>
+      </section> -->
+        </div>
+    </article>
 </BaseLayout>
