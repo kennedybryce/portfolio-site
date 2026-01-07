@@ -1,0 +1,182 @@
+---
+// Full-screen animated hexagonal grid background (single SVG, generated at runtime)
+---
+
+<div class="hex-background" aria-hidden="true">
+  <svg id="hex-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1600 900" class="hex-svg"></svg>
+</div>
+
+<style>
+  .hex-background {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+    background: linear-gradient(180deg,#071026 0%, #071a34 60%);
+    /* subtle animated overlay to slowly shift hues */
+  }
+
+  .hex-background::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(6,18,39,0.6), rgba(18,58,120,0.35));
+    mix-blend-mode: overlay;
+    opacity: 0.35;
+    will-change: opacity, filter;
+    animation: bgColorShift 90s ease-in-out infinite alternate;
+  }
+
+  .hex-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .hexagon {
+    stroke: rgba(255,255,255,0.04);
+    stroke-width: 1;
+    transform-origin: center;
+    transition: transform 400ms ease, opacity 600ms ease;
+    will-change: transform, opacity;
+  }
+
+  @keyframes hexPulse {
+    0% { opacity: 0.35; transform: scale(1); }
+    50% { opacity: 0.85; transform: scale(1.03); }
+    100% { opacity: 0.35; transform: scale(1); }
+  }
+
+  /* slowly shift overall hue of the hex grid for a subtle color change */
+  .hex-grid {
+    will-change: filter, transform;
+    animation: hueShift 120s linear infinite alternate;
+  }
+
+  @keyframes hueShift {
+    0% { filter: hue-rotate(-8deg) saturate(1); }
+    50% { filter: hue-rotate(0deg) saturate(1.05); }
+    100% { filter: hue-rotate(8deg) saturate(1); }
+  }
+
+  @keyframes bgColorShift {
+    0% { filter: hue-rotate(-6deg); opacity: 0.32; }
+    50% { filter: hue-rotate(0deg); opacity: 0.38; }
+    100% { filter: hue-rotate(6deg); opacity: 0.32; }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .hexagon[data-animate="true"] {
+      animation-name: hexPulse;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hex-background::before,
+    .hex-grid,
+    .hexagon[data-animate="true"] {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
+</style>
+
+<script>
+  declare global {
+    interface Window {
+      __hexBackgroundInitialized?: boolean;
+    }
+  }
+
+  (function () {
+    if (typeof window === 'undefined') return;
+    // Hydration guard: only initialize once to avoid flicker on client navigation
+    if (window.__hexBackgroundInitialized) return;
+    window.__hexBackgroundInitialized = true;
+    const svg = document.getElementById('hex-svg');
+    if (!svg) return;
+
+    const svgWidth = 1600; // viewBox width
+    const svgHeight = 900; // viewBox height
+
+    // Hex geometry (pointy-top hexagons)
+    const size = 48; // radius
+    const hexW = Math.sqrt(3) * size; // approx 1.732 * size
+    const hexH = 2 * size;
+    const vert = (3 / 4) * hexH; // vertical spacing
+
+    // Colors (dark blue palette)
+    const colors = [
+      'rgba(6,18,39,0.68)',
+      'rgba(8,28,56,0.64)',
+      'rgba(10,34,66,0.6)',
+      'rgba(12,44,86,0.55)',
+      'rgba(18,58,120,0.5)'
+    ];
+
+    function hexPoints(cx: number, cy: number, r: number) {
+      const pts = [];
+      for (let i = 0; i < 6; i++) {
+        const angle = Math.PI / 180 * (60 * i - 30); // pointy-top
+        const x = cx + r * Math.cos(angle);
+        const y = cy + r * Math.sin(angle);
+        pts.push(`${x.toFixed(2)},${y.toFixed(2)}`);
+      }
+      return pts.join(' ');
+    }
+
+    const cols = Math.ceil(svgWidth / hexW) + 4;
+    const rows = Math.ceil(svgHeight / vert) + 4;
+
+    const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    g.setAttribute('class', 'hex-grid');
+    svg.appendChild(g);
+
+    for (let row = -1; row < rows; row++) {
+      for (let col = -1; col < cols; col++) {
+        const offset = (row % 2 === 0) ? hexW / 2 : 0;
+        const cx = col * hexW + offset + hexW / 2;
+        const cy = row * vert + hexH / 2;
+
+        const jitterX = (Math.random() - 0.5) * 6;
+        const jitterY = (Math.random() - 0.5) * 6;
+
+        const color = colors[Math.floor(Math.random() * colors.length)];
+
+        const poly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+        poly.setAttribute('points', hexPoints(cx + jitterX, cy + jitterY, size));
+        poly.setAttribute('fill', color);
+        poly.setAttribute('class', 'hexagon');
+
+        const dur = (6 + Math.random() * 6).toFixed(2) + 's';
+        const delay = (Math.random() * 4).toFixed(2) + 's';
+        poly.style.animationDuration = dur;
+        poly.style.animationDelay = delay;
+        poly.setAttribute('data-animate', 'true');
+
+        poly.style.opacity = (0.28 + Math.random() * 0.5).toFixed(2);
+
+        g.appendChild(poly);
+      }
+    }
+
+    // subtle parallax on scroll
+    let lastScroll = window.scrollY;
+    const onScroll = () => {
+      const scroll = window.scrollY;
+      const dy = (scroll - lastScroll) * 0.08;
+      lastScroll = scroll;
+      g.style.transform = `translateY(${dy}px)`;
+    };
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', onScroll, { passive: true });
+    }
+  })();
+</script>

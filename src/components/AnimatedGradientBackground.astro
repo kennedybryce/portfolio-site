@@ -1,0 +1,49 @@
+---
+// Full-screen animated gradient background (CSS-driven)
+---
+
+<div class="gradient-container" aria-hidden="true"></div>
+
+<style>
+  .gradient-container {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+    background: linear-gradient(313deg, #b94808, #c1651b, #26c386, #359dc5, #5235c5, #c5356d);
+    background-size: 1200% 1200%;
+    -webkit-animation: gradientShift 200s ease infinite;
+    -moz-animation: gradientShift 200s ease infinite;
+    animation: gradientShift 200s ease infinite;
+    opacity: 0.85;
+    will-change: background-position;
+  }
+
+  @-webkit-keyframes gradientShift {
+    0%{background-position:11% 0%}
+    50%{background-position:90% 100%}
+    100%{background-position:11% 0%}
+  }
+  @-moz-keyframes gradientShift {
+    0%{background-position:11% 0%}
+    50%{background-position:90% 100%}
+    100%{background-position:11% 0%}
+  }
+  @keyframes gradientShift {
+    0%{background-position:11% 0%}
+    50%{background-position:90% 100%}
+    100%{background-position:11% 0%}
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .gradient-container {
+      -webkit-animation: none !important;
+      -moz-animation: none !important;
+      animation: none !important;
+    }
+  }
+</style>
