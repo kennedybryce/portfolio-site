@@ -64,3 +64,24 @@ export default function RiveIconButton({
     </button>
   );
 }
+
+
+
+/* <div class="flex gap-3 pt-4">
+                      <RiveIconButton
+                        client:load
+                        artboard="calendar"
+                        stateMachine="State Machine 1"
+                        clickInputName="calendarClicked"
+                        href="mailto:you@example.com"
+                        label="Email Bryce"
+                      />
+                      <RiveIconButton
+                        client:load
+                        artboard="calendar"
+                        stateMachine="State Machine 1"
+                        clickInputName="calendarClicked"
+                        href="mailto:you@example.com"
+                        label="Email Bryce"
+                      />
+                    </div> */
