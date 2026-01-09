@@ -20,3 +20,14 @@ html {
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
+
+@keyframes astro-drift {
+  0%   { transform: translate(-2%, -1%) scale(1.02); }
+  100% { transform: translate( 2%,  1%) scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-astro-drift {
+    animation: none !important;
+  }
+}

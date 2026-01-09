@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import AnimatedGradientBackground from "../components/AnimatedGradientBackground.astro";
+import BackgroundGlow from "../components/BackgroundGlow.astro";
 // import ThemeToggle from "../components/ThemeToggle";
 
 interface Props {
@@ -72,6 +73,7 @@ const base = import.meta.env.BASE_URL;
   </head>
   <body class="min-h-screen bg-surface-dark text-text-light">
     <AnimatedGradientBackground />
+    /* <BackgroundGlow /> */
     <div class="min-h-screen flex flex-col">
       <header
         class="site-header border-b border-gray-dark/70 bg-surface-dark/90 backdrop-blur transition-all"
@@ -86,15 +88,24 @@ const base = import.meta.env.BASE_URL;
                 class="flex items-center gap-3 font-semibold tracking-tight"
               >
                 <div
-                  class="header-profile w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border-2 border-transparent"
+                  class="header-profile w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border-2 border-brand-orange"
                 >
                   <img
-                    src={`${base}images/profile.PNG`}
+                    src={`${base}images/profile-small.jpg`}
                     alt="Bryce Kennedy"
                     class="w-full h-full object-cover"
                   />
                 </div>
-                <span class="header-name hidden md:inline">Bryce Kennedy</span>
+                <div>
+                  <p
+                    class="text-xs uppercase tracking-[0.25em] text-sky-300/80 hidden md:block"
+                    style="font-size:.6rem;"
+                  >
+                    UX Engineering · Frontend Development · Content Management Systems
+                  </p>
+                  <span class="header-name hidden md:inline">Bryce Kennedy</span
+                  >
+                </div>
               </a>
             </div>
 
@@ -198,58 +209,72 @@ const base = import.meta.env.BASE_URL;
 
     <script>
       // Wait for DOM to be fully loaded before initializing
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initScrollListener);
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initScrollListener);
       } else {
         initScrollListener();
       }
 
       function initScrollListener() {
         const header = document.querySelector(".site-header");
-        
+
         if (!header) {
           console.error("Header element not found");
           return;
         }
-        
+
         console.log("Header initialized for scroll detection");
-        
+
         // Find the hero section by id (section with id="test" in index.astro)
-        const heroElement = document.querySelector('[slot="hero"]') || document.querySelector('section#test');
-        
+        const heroElement =
+          document.querySelector('[slot="hero"]') ||
+          document.querySelector("section#test");
+
         // If there's no hero section, always show the header
         if (!heroElement) {
           header.classList.add("header--visible");
           console.log("No hero section found - header always visible");
           return;
         }
-        
+
         let ticking = false;
-        
+
         const updateHeaderVisibility = () => {
           if (heroElement) {
             const heroRect = heroElement.getBoundingClientRect();
             const shouldShowHeader = heroRect.bottom < 0;
-            
-            console.log("Hero bottom:", heroRect.bottom, "Should show header:", shouldShowHeader);
-            
+
+            console.log(
+              "Hero bottom:",
+              heroRect.bottom,
+              "Should show header:",
+              shouldShowHeader,
+            );
+
             // Only update if state changed
             const hasClass = header.classList.contains("header--visible");
             if (shouldShowHeader !== hasClass) {
               header.classList.toggle("header--visible", shouldShowHeader);
-              console.log("Header class toggled. Has header--visible:", header.classList.contains("header--visible"));
+              console.log(
+                "Header class toggled. Has header--visible:",
+                header.classList.contains("header--visible"),
+              );
             }
           }
           ticking = false;
         };
 
-        window.addEventListener("scroll", () => {
-          if (!ticking) {
-            window.requestAnimationFrame(updateHeaderVisibility);
-            ticking = true;
-          }
-        }, { passive: true });
-        
+        window.addEventListener(
+          "scroll",
+          () => {
+            if (!ticking) {
+              window.requestAnimationFrame(updateHeaderVisibility);
+              ticking = true;
+            }
+          },
+          { passive: true },
+        );
+
         // Initial call
         updateHeaderVisibility();
       }

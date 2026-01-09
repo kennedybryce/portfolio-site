@@ -8,16 +8,14 @@ const base = import.meta.env.BASE_URL;
 <BaseLayout title="Home – Bryce Kennedy">
   <div slot="hero">
     <section class="max-w-5xl mx-auto px-4 py-16 md:py-24" id="test">
-      <div
-        class="grid gap-12 items-center"
-      >
+      <div class="grid gap-12 items-center">
         <div class="flex flex-col md:flex-row items-start gap-8">
           <div class="flex-shrink-0">
             <div
               class="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-brand-orange overflow-hidden bg-surface-card"
             >
               <img
-                src={`${base}images/profile.PNG`}
+                src={`${base}images/profile-large.jpg`}
                 alt="Bryce Kennedy"
                 loading="lazy"
                 class="w-full h-full object-cover"
@@ -27,7 +25,7 @@ const base = import.meta.env.BASE_URL;
 
           <div class="space-y-6">
             <p class="text-xs uppercase tracking-[0.25em] text-sky-300/80">
-              UX Engineering · Frontend · Systems
+              UX Engineering · Frontend Development · Content Management Systems
             </p>
 
             <h1
@@ -65,6 +63,8 @@ const base = import.meta.env.BASE_URL;
     </section>
   </div>
 
+  <div style="display:block; height:200px;"></div>
+
   <!-- Projects Section -->
   <section
     id="projects"
@@ -72,11 +72,6 @@ const base = import.meta.env.BASE_URL;
   >
     <div class="space-y-4">
       <h2 class="text-2xl md:text-3xl font-semibold">Recent Projects</h2>
-      <p class="text-slate-300 text-sm md:text-base max-w-2xl">
-        This is where we'll showcase your case studies: Jetnet → Unily
-        migration, digital signage platform, Brightcove integrations,
-        LivePerson, and more.
-      </p>
     </div>
 
     <!-- Project Cards Grid -->
@@ -159,7 +154,7 @@ const base = import.meta.env.BASE_URL;
       >
         <div class="aspect-video bg-gray-dark/30 overflow-hidden">
           <img
-            src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnZuZXI3Nm1wZjR1YWM2NGlpeTNhMGQyZ3NlNmU3eXV0Mmc0dWtvciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o6ZtpWvwnhf34Oj0A/giphy.gif"
+            src={`${base}images/projects/flight-data.png`}
             alt="Video Platform Integration preview"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
@@ -218,6 +213,8 @@ const base = import.meta.env.BASE_URL;
     </div>
   </section>
 
+  <div style="display:block; height:200px;"></div>
+
   <!-- About Section -->
   <section id="about" class="max-w-5xl mx-auto px-4 py-16 md:py-20 space-y-8">
     <h2 class="text-2xl md:text-3xl font-semibold">About</h2>
@@ -228,55 +225,64 @@ const base = import.meta.env.BASE_URL;
         digital signage systems.
       </p>
       <p>
-        My work at American Airlines has focused on creating reliable, scalable
-        solutions using modern frameworks like Angular, React, and Astro. I
-        specialize in complex integrations, content management systems, and
-        building tools that make developers' lives easier.
+        My recent work at American Airlines has focused on creating reliable,
+        scalable solutions using modern frameworks like Angular, React, and
+        Unily. I specialize in complex integrations, content management systems,
+        and building tools that make my customers' lives easier.
       </p>
       <p>
         When I'm not coding, I explore creative projects combining technology
-        with design—from building WordPress themes with Advanced Custom Fields
-        to creating interactive animations with Rive.
+        with design, such as building WordPress themes with Advanced Custom
+        Fields, creating interactive animations with Rive, and experimenting
+        with 3D modeling and printing.
       </p>
     </div>
 
     <!-- Skills/Tech -->
     <div class="mt-8 space-y-3">
-      <h3 class="text-lg font-semibold">Tech & Tools</h3>
-      <div class="flex flex-wrap gap-2 text-sm">
-        <span
-          class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full"
-          >Angular</span
-        >
-        <span
-          class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full"
-          >React</span
-        >
-        <span
-          class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full"
-          >TypeScript</span
-        >
-        <span
-          class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full"
-          >Astro</span
-        >
-        <span
-          class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full"
-          >Node.js</span
-        >
-        <span
-          class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full"
-          >WordPress</span
-        >
-        <span
-          class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full"
-          >Rive</span
-        >
-        <span
-          class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full"
-          >Tailwind CSS</span
-        >
-      </div>
+      <h3 class="text-lg font-semibold">
+        Tech & Tools I use to get the job done
+      </h3>
+      <p class="text-slate-300 text-sm md:text-base">
+        As technologies change and evolve, I stay adaptable and continuously
+        learn new skills to keep up. Here is a rundown of what I use most right
+        at this moment:
+        <div class="flex flex-wrap gap-2 text-sm">
+          <span
+            class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full"
+            >Angular</span
+          >
+          <span
+            class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full"
+            >React</span
+          >
+          <span
+            class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full"
+            >TypeScript</span
+          >
+          <span
+            class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full"
+            >Astro</span
+          >
+          <span
+            class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full"
+            >Node.js</span
+          >
+          <span
+            class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full"
+            >WordPress</span
+          >
+          <span
+            class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full"
+            >Rive</span
+          >
+          <span
+            class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full"
+            >Tailwind CSS</span
+          >
+        </div>
+      </p>
     </div>
+    <div style="height:200px;"></div>
   </section>
 </BaseLayout>
