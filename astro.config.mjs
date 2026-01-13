@@ -8,8 +8,8 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   integrations: [react()],
-  site: 'https://kennedybryce.github.io/portfolio-site',
-  base: import.meta.env.PROD ? "/portfolio-site/" : "/",
+  site: 'https://bryce-kennedy.com', // Update this to your actual custom domain
+  base: '/',
   vite: {
     plugins: [tailwindcss()]
   },
