@@ -25,14 +25,22 @@ const base = import.meta.env.BASE_URL;
 
       /* Header - sticky, initially hidden above viewport */
       .site-header {
-        position: sticky;
+        position: fixed;
         top: 0;
+        left: 0;
+        right: 0;
         z-index: 40;
         background: rgba(7, 10, 20, 0.95);
         backdrop-filter: blur(6px);
         border-bottom: 1px solid rgba(55, 65, 81, 0.2);
         transform: translateY(-100%);
         transition: transform 0.3s ease;
+      }
+
+      /* Pre-show header if it was visible (set via inline script) */
+      .site-header.header--preload {
+        transform: translateY(0);
+        transition: none;
       }
 
       /* Header visible when scrolled past hero */
@@ -54,30 +62,93 @@ const base = import.meta.env.BASE_URL;
         display: block;
       }
 
-      .header-name {
-        display: none;
-      }
-
-      @media (min-width: 768px) {
-        .header-name {
-          display: inline;
-        }
-      }
-
       /* Hero slot styling */
       ::slotted([slot="hero"]) {
         display: block;
         width: 100%;
       }
+
+      /* Tagline animation for mobile */
+      .tagline-container {
+        position: relative;
+        height: 1rem;
+        overflow: visible;
+        display: block;
+      }
+
+      .tagline-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        animation: taglineCycle 15s infinite ease-in-out;
+        white-space: nowrap;
+        transition: opacity 1s ease-in-out;
+      }
+
+      .tagline-item:nth-child(1) {
+        animation-delay: 0s;
+      }
+
+      .tagline-item:nth-child(2) {
+        animation-delay: 5s;
+      }
+
+      .tagline-item:nth-child(3) {
+        animation-delay: 10s;
+      }
+
+      @keyframes taglineCycle {
+        0% {
+          opacity: 0;
+        }
+        5% {
+          opacity: 1;
+        }
+        28% {
+          opacity: 1;
+        }
+        33% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      /* Show static tagline on desktop */
+      @media (min-width: 768px) {
+        .tagline-container {
+          height: auto;
+        }
+
+        .tagline-item {
+          position: static;
+          opacity: 1;
+          animation: none;
+          display: inline;
+        }
+
+        .tagline-item:not(:last-child)::after {
+          content: " · ";
+        }
+      }
     </style>
   </head>
   <body class="min-h-screen bg-surface-dark text-text-light">
     <AnimatedGradientBackground />
-    /* <BackgroundGlow /> */
     <div class="min-h-screen flex flex-col">
       <header
         class="site-header border-b border-gray-dark/70 bg-surface-dark/90 backdrop-blur transition-all"
+        id="site-header"
       >
+        <script is:inline>
+          // Run immediately to prevent animation flash
+          if (sessionStorage.getItem("headerVisible") === "true") {
+            document.getElementById("site-header").classList.add("header--preload");
+          }
+        </script>
         <div class="max-w-5xl mx-auto px-4 header-inner">
           <div
             class="topbar flex items-center justify-between gap-4 py-6 md:py-4"
@@ -96,15 +167,16 @@ const base = import.meta.env.BASE_URL;
                     class="w-full h-full object-cover"
                   />
                 </div>
-                <div>
-                  <p
-                    class="text-xs uppercase tracking-[0.25em] text-sky-300/80 hidden md:block"
+                <div class="flex flex-col justify-start">
+                  <div
+                    class="text-xs uppercase tracking-[0.25em] text-sky-300/80 tagline-container block"
                     style="font-size:.6rem;"
                   >
-                    UX Engineering · Frontend Development · Content Management Systems
-                  </p>
-                  <span class="header-name hidden md:inline">Bryce Kennedy</span
-                  >
+                    <span class="tagline-item">UX Engineering</span>
+                    <span class="tagline-item">Frontend Development</span>
+                    <span class="tagline-item">Content Management Systems</span>
+                  </div>
+                  <span class="header-name inline">Bryce Kennedy</span>
                 </div>
               </a>
             </div>
@@ -232,9 +304,17 @@ const base = import.meta.env.BASE_URL;
 
         // If there's no hero section, always show the header
         if (!heroElement) {
+          header.classList.remove("header--preload");
           header.classList.add("header--visible");
+          sessionStorage.setItem("headerVisible", "true");
           console.log("No hero section found - header always visible");
           return;
+        }
+
+        // If header was preloaded as visible, convert to visible state
+        if (header.classList.contains("header--preload")) {
+          header.classList.remove("header--preload");
+          header.classList.add("header--visible");
         }
 
         let ticking = false;
@@ -255,6 +335,7 @@ const base = import.meta.env.BASE_URL;
             const hasClass = header.classList.contains("header--visible");
             if (shouldShowHeader !== hasClass) {
               header.classList.toggle("header--visible", shouldShowHeader);
+              sessionStorage.setItem("headerVisible", shouldShowHeader ? "true" : "false");
               console.log(
                 "Header class toggled. Has header--visible:",
                 header.classList.contains("header--visible"),
@@ -278,6 +359,27 @@ const base = import.meta.env.BASE_URL;
         // Initial call
         updateHeaderVisibility();
       }
+
+      // Save scroll position before navigating away
+      document.addEventListener("click", (e) => {
+        const link = (e.target as HTMLElement).closest("a");
+        if (link && link.href && !link.href.includes("#")) {
+          // Save current scroll position for this page
+          const currentPath = window.location.pathname;
+          sessionStorage.setItem(`scrollPos_${currentPath}`, window.scrollY.toString());
+        }
+      });
+
+      // Restore scroll position when page loads
+      window.addEventListener("load", () => {
+        const currentPath = window.location.pathname;
+        const savedScroll = sessionStorage.getItem(`scrollPos_${currentPath}`);
+
+        // Only restore if there's no hash in the URL
+        if (savedScroll && !window.location.hash) {
+          window.scrollTo(0, parseInt(savedScroll));
+        }
+      });
 
       // Smooth scroll with offset
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {

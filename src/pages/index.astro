@@ -6,8 +6,8 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Home – Bryce Kennedy">
-  <div slot="hero">
-    <section class="max-w-5xl mx-auto px-4 py-16 md:py-24" id="test">
+  <div slot="hero" class="snap-section">
+    <section class="max-w-5xl mx-auto px-4 py-16 md:py-24 min-h-screen flex items-center" id="test">
       <div class="grid gap-12 items-center">
         <div class="flex flex-col md:flex-row items-start gap-8">
           <div class="flex-shrink-0">
@@ -23,23 +23,31 @@ const base = import.meta.env.BASE_URL;
             </div>
           </div>
 
-          <div class="space-y-6">
-            <p class="text-xs uppercase tracking-[0.25em] text-sky-300/80">
-              UX Engineering · Frontend Development · Content Management Systems
-            </p>
+          <div class="space-y-4">
+            <div class="text-xs uppercase tracking-[0.25em] text-sky-300/80 tagline-container-hero">
+              <span class="tagline-item-hero">UX Engineering</span>
+              <span class="tagline-item-hero">Frontend Development</span>
+              <span class="tagline-item-hero">Content Management Systems</span>
+            </div>
 
-            <h1
-              class="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight"
-            >
-              I build reliable, high-visibility interfaces for complex systems.
-            </h1>
+            <div class="space-y-2">
+              <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight">
+                Bryce Kennedy
+              </h1>
 
-            <p class="text-slate-300 max-w-xl text-sm md:text-base">
-              I’m a UX-minded engineer with deep experience in Angular, intranet
-              platforms, and digital signage systems. I design and implement
-              integrations that keep enterprise experiences fast, consistent,
-              and maintainable.
-            </p>
+              <h2
+                class="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight"
+              >
+                I build reliable, high-visibility interfaces for complex systems.
+              </h2>
+
+              <p class="text-slate-300 max-w-xl text-sm md:text-base pt-2">
+                I'm a UX-minded engineer with deep experience in Angular, intranet
+                platforms, and digital signage systems. I design and implement
+                integrations that keep enterprise experiences fast, consistent,
+                and maintainable.
+              </p>
+            </div>
 
             <div class="flex flex-wrap gap-3 text-sm">
               <a
@@ -63,12 +71,10 @@ const base = import.meta.env.BASE_URL;
     </section>
   </div>
 
-  <div style="display:block; height:200px;"></div>
-
   <!-- Projects Section -->
   <section
     id="projects"
-    class="max-w-5xl mx-auto px-4 py-16 md:py-20 space-y-8"
+    class="snap-section max-w-5xl mx-auto px-4 py-16 md:py-20 space-y-8 fade-section min-h-screen flex flex-col justify-center"
   >
     <div class="space-y-4">
       <h2 class="text-2xl md:text-3xl font-semibold">Recent Projects</h2>
@@ -213,10 +219,8 @@ const base = import.meta.env.BASE_URL;
     </div>
   </section>
 
-  <div style="display:block; height:200px;"></div>
-
   <!-- About Section -->
-  <section id="about" class="max-w-5xl mx-auto px-4 py-16 md:py-20 space-y-8">
+  <section id="about" class="snap-section max-w-5xl mx-auto px-4 py-16 md:py-20 space-y-8 fade-section min-h-screen flex flex-col justify-center">
     <h2 class="text-2xl md:text-3xl font-semibold">About</h2>
     <div class="space-y-4 text-slate-300 text-sm md:text-base">
       <p>
@@ -283,6 +287,160 @@ const base = import.meta.env.BASE_URL;
         </div>
       </p>
     </div>
-    <div style="height:200px;"></div>
   </section>
 </BaseLayout>
+
+<style>
+  /* Scroll snap container */
+  :global(body) {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+
+  .snap-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .fade-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .fade-section.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-section.fade-out {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  /* Hero tagline animation for mobile */
+  .tagline-container-hero {
+    position: relative;
+    height: 1rem;
+    overflow: visible;
+    display: block;
+  }
+
+  .tagline-item-hero {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    animation: taglineCycle 15s infinite ease-in-out;
+    white-space: nowrap;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .tagline-item-hero:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .tagline-item-hero:nth-child(2) {
+    animation-delay: 5s;
+  }
+
+  .tagline-item-hero:nth-child(3) {
+    animation-delay: 10s;
+  }
+
+  @keyframes taglineCycle {
+    0% {
+      opacity: 0;
+    }
+    5% {
+      opacity: 1;
+    }
+    28% {
+      opacity: 1;
+    }
+    33% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  /* Show static tagline on desktop */
+  @media (min-width: 768px) {
+    .tagline-container-hero {
+      height: auto;
+    }
+
+    .tagline-item-hero {
+      position: static;
+      opacity: 1;
+      animation: none;
+      display: inline;
+    }
+
+    .tagline-item-hero:not(:last-child)::after {
+      content: " · ";
+    }
+  }
+</style>
+
+<script>
+  // Wait for DOM to be ready
+  function initFadeAnimations() {
+    // Intersection Observer for fade-in/fade-out animations
+    const observerOptions = {
+      root: null,
+      rootMargin: '-15% 0px -15% 0px',
+      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const target = entry.target as HTMLElement;
+
+        // Calculate how much of the element is visible
+        const visibilityRatio = entry.intersectionRatio;
+
+        if (visibilityRatio > 0.25) {
+          // Element is sufficiently visible - fade in
+          target.classList.add('fade-in');
+          target.classList.remove('fade-out');
+        } else {
+          // Element is not visible enough - fade out completely
+          target.classList.remove('fade-in');
+          target.classList.add('fade-out');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all fade sections
+    const sections = document.querySelectorAll('.fade-section');
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    // Trigger initial check
+    setTimeout(() => {
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const margin = windowHeight * 0.15;
+
+        // Check if section is in the visible area
+        if (rect.top < windowHeight - margin && rect.bottom > margin) {
+          section.classList.add('fade-in');
+          section.classList.remove('fade-out');
+        }
+      });
+    }, 100);
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFadeAnimations);
+  } else {
+    initFadeAnimations();
+  }
+</script>
