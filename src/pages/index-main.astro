@@ -1,0 +1,446 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import RiveIconButton from "../components/RiveIconButton";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Home – Bryce Kennedy">
+  <div slot="hero" class="snap-section">
+    <section class="max-w-5xl mx-auto px-4 py-16 md:py-24 min-h-screen flex items-center" id="test">
+      <div class="grid gap-12 items-center">
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="flex-shrink-0">
+            <div
+              class="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-brand-orange overflow-hidden bg-surface-card"
+            >
+              <img
+                src={`${base}images/profile-large.jpg`}
+                alt="Bryce Kennedy"
+                loading="lazy"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="text-xs uppercase tracking-[0.25em] text-sky-300/80 tagline-container-hero">
+              <span class="tagline-item-hero">UX Engineering</span>
+              <span class="tagline-item-hero">Frontend Development</span>
+              <span class="tagline-item-hero">Content Management Systems</span>
+            </div>
+
+            <div class="space-y-2">
+              <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight">
+                Bryce Kennedy
+              </h1>
+
+              <h2
+                class="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight"
+              >
+                I build reliable, high-visibility interfaces for complex systems.
+              </h2>
+
+              <p class="text-slate-300 max-w-xl text-sm md:text-base pt-2">
+                I'm a UX-minded engineer with deep experience in Angular, intranet
+                platforms, and digital signage systems. I design and implement
+                integrations that keep enterprise experiences fast, consistent,
+                and maintainable.
+              </p>
+            </div>
+
+            <div class="flex flex-wrap gap-3 text-sm">
+              <a
+                href="#projects"
+                class="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-brand-orange bg-brand-orange text-gray-black hover:opacity-90 transition"
+                >View projects</a
+              >
+              <a
+                href="#about"
+                class="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-gray-dark text-text-light hover:text-brand-orange hover:border-brand-orange transition"
+                >About me</a
+              >
+            </div>
+
+            <div class="max-w-md md:max-w-none mx-auto">
+              <!-- <HeroRive client:load /> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Projects Section -->
+  <section
+    id="projects"
+    class="snap-section max-w-5xl mx-auto px-4 py-16 md:py-20 space-y-8 fade-section min-h-screen flex flex-col justify-center"
+  >
+    <div class="space-y-4">
+      <h2 class="text-2xl md:text-3xl font-semibold">Recent Projects</h2>
+    </div>
+
+    <!-- Project Cards Grid -->
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-8">
+      <!-- Project Card 1 -->
+      <a
+        href={`${base}projects/jetnet-migration`}
+        class="bg-surface-card border border-gray-dark/70 rounded-lg overflow-hidden hover:border-brand-orange/50 transition block group"
+      >
+        <div class="aspect-video bg-gray-dark/30 overflow-hidden">
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          >
+            <source src={`${base}videos/badging01.mp4`} type="video/mp4" />
+          </video>
+        </div>
+        <div class="p-6 space-y-3">
+          <h3
+            class="text-lg font-semibold group-hover:text-brand-orange transition-colors"
+          >
+            Jetnet Migration
+          </h3>
+          <p class="text-sm text-slate-300">
+            Led the migration from legacy intranet platform to Unily, handling
+            complex integrations and ensuring seamless transition.
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-2 py-1 bg-gray-dark/50 rounded">Angular</span>
+            <span class="px-2 py-1 bg-gray-dark/50 rounded">TypeScript</span>
+            <span class="px-2 py-1 bg-gray-dark/50 rounded">Integration</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project Card 2 -->
+      <a
+        href={`${base}projects/digital-signage`}
+        class="bg-surface-card border border-gray-dark/70 rounded-lg overflow-hidden hover:border-brand-orange/50 transition block group"
+      >
+        <div class="aspect-video bg-gray-dark/30 overflow-hidden">
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          >
+            <source
+              src={`${base}videos/digital-signage-intro.mp4`}
+              type="video/mp4"
+            />
+          </video>
+        </div>
+        <div class="p-6 space-y-3">
+          <h3
+            class="text-lg font-semibold group-hover:text-brand-orange transition-colors"
+          >
+            Digital Signage System
+          </h3>
+          <p class="text-sm text-slate-300">
+            Built and maintained a high-visibility digital signage platform
+            serving thousands of displays across the enterprise.
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-2 py-1 bg-gray-dark/50 rounded">React</span>
+            <span class="px-2 py-1 bg-gray-dark/50 rounded">Real-time</span>
+            <span class="px-2 py-1 bg-gray-dark/50 rounded">CMS</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project Card 3 -->
+      <a
+        href={`${base}projects/video-platform`}
+        class="bg-surface-card border border-gray-dark/70 rounded-lg overflow-hidden hover:border-brand-orange/50 transition block group"
+      >
+        <div class="aspect-video bg-gray-dark/30 overflow-hidden">
+          <img
+            src={`${base}images/projects/flight-data.png`}
+            alt="Video Platform Integration preview"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        <div class="p-6 space-y-3">
+          <h3
+            class="text-lg font-semibold group-hover:text-brand-orange transition-colors"
+          >
+            Video Platform Integration
+          </h3>
+          <p class="text-sm text-slate-300">
+            Integrated Brightcove video platform with custom UI components and
+            analytics tracking for enterprise content delivery.
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-2 py-1 bg-gray-dark/50 rounded">JavaScript</span>
+            <span class="px-2 py-1 bg-gray-dark/50 rounded">API</span>
+            <span class="px-2 py-1 bg-gray-dark/50 rounded">Video</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project Card 4 -->
+      <a
+        href={`${base}projects/jetnet-migration`}
+        class="bg-surface-card border border-gray-dark/70 rounded-lg overflow-hidden hover:border-brand-orange/50 transition block group"
+      >
+        <div class="aspect-video bg-gray-dark/30 overflow-hidden">
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          >
+            <source src={`${base}videos/badging01.mp4`} type="video/mp4" />
+          </video>
+        </div>
+        <div class="p-6 space-y-3">
+          <h3
+            class="text-lg font-semibold group-hover:text-brand-orange transition-colors"
+          >
+            Jetnet Migration
+          </h3>
+          <p class="text-sm text-slate-300">
+            Led the migration from legacy intranet platform to Unily, handling
+            complex integrations and ensuring seamless transition.
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-2 py-1 bg-gray-dark/50 rounded">Angular</span>
+            <span class="px-2 py-1 bg-gray-dark/50 rounded">TypeScript</span>
+            <span class="px-2 py-1 bg-gray-dark/50 rounded">Integration</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="snap-section max-w-5xl mx-auto px-4 py-16 md:py-20 space-y-8 fade-section min-h-screen flex flex-col justify-center">
+    <h2 class="text-2xl md:text-3xl font-semibold">About</h2>
+    <div class="space-y-4 text-slate-300 text-sm md:text-base">
+      <p>
+        I'm a UX-minded engineer who's spent the last several years building and
+        maintaining high-visibility internal tools, intranet experiences, and
+        digital signage systems.
+      </p>
+      <p>
+        My recent work at American Airlines has focused on creating reliable,
+        scalable solutions using modern frameworks like Angular, React, and
+        Unily. I specialize in complex integrations, content management systems,
+        and building tools that make my customers' lives easier.
+      </p>
+      <p>
+        When I'm not coding, I explore creative projects combining technology
+        with design, such as building WordPress themes with Advanced Custom
+        Fields, creating interactive animations with Rive, and experimenting
+        with 3D modeling and printing.
+      </p>
+    </div>
+
+    <!-- Skills/Tech -->
+    <div class="mt-8 space-y-3">
+      <h3 class="text-lg font-semibold">
+        Tech & Tools I use to get the job done
+      </h3>
+      <p class="text-slate-300 text-sm md:text-base">
+        As technologies change and evolve, I stay adaptable and continuously
+        learn new skills to keep up. Here is a rundown of what I use most right
+        at this moment:
+        <div class="flex flex-wrap gap-2 text-sm">
+          <span
+            class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full"
+            >Angular</span
+          >
+          <span
+            class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full"
+            >React</span
+          >
+          <span
+            class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full"
+            >TypeScript</span
+          >
+          <span
+            class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full"
+            >Astro</span
+          >
+          <span
+            class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full"
+            >Node.js</span
+          >
+          <span
+            class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full"
+            >WordPress</span
+          >
+          <span
+            class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full"
+            >Rive</span
+          >
+          <span
+            class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full"
+            >Tailwind CSS</span
+          >
+        </div>
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Scroll snap container */
+  :global(body) {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+
+  .snap-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .fade-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .fade-section.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-section.fade-out {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  /* Hero tagline animation for mobile */
+  .tagline-container-hero {
+    position: relative;
+    height: 1rem;
+    overflow: visible;
+    display: block;
+  }
+
+  .tagline-item-hero {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    animation: taglineCycle 15s infinite ease-in-out;
+    white-space: nowrap;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .tagline-item-hero:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .tagline-item-hero:nth-child(2) {
+    animation-delay: 5s;
+  }
+
+  .tagline-item-hero:nth-child(3) {
+    animation-delay: 10s;
+  }
+
+  @keyframes taglineCycle {
+    0% {
+      opacity: 0;
+    }
+    5% {
+      opacity: 1;
+    }
+    28% {
+      opacity: 1;
+    }
+    33% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  /* Show static tagline on desktop */
+  @media (min-width: 768px) {
+    .tagline-container-hero {
+      height: auto;
+    }
+
+    .tagline-item-hero {
+      position: static;
+      opacity: 1;
+      animation: none;
+      display: inline;
+    }
+
+    .tagline-item-hero:not(:last-child)::after {
+      content: " · ";
+    }
+  }
+</style>
+
+<script>
+  // Wait for DOM to be ready
+  function initFadeAnimations() {
+    // Intersection Observer for fade-in/fade-out animations
+    const observerOptions = {
+      root: null,
+      rootMargin: '-15% 0px -15% 0px',
+      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const target = entry.target as HTMLElement;
+
+        // Calculate how much of the element is visible
+        const visibilityRatio = entry.intersectionRatio;
+
+        if (visibilityRatio > 0.25) {
+          // Element is sufficiently visible - fade in
+          target.classList.add('fade-in');
+          target.classList.remove('fade-out');
+        } else {
+          // Element is not visible enough - fade out completely
+          target.classList.remove('fade-in');
+          target.classList.add('fade-out');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all fade sections
+    const sections = document.querySelectorAll('.fade-section');
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    // Trigger initial check
+    setTimeout(() => {
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const margin = windowHeight * 0.15;
+
+        // Check if section is in the visible area
+        if (rect.top < windowHeight - margin && rect.bottom > margin) {
+          section.classList.add('fade-in');
+          section.classList.remove('fade-out');
+        }
+      });
+    }, 100);
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFadeAnimations);
+  } else {
+    initFadeAnimations();
+  }
+</script>
