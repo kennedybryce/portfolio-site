@@ -1,33 +1,105 @@
 ---
-// TEMPORARY REDIRECT TO COMING SOON PAGE
+// TEMPORARY: Coming Soon page is serving as the index
 // To switch back to main site:
 // 1. Delete this file (src/pages/index.astro)
 // 2. Rename src/pages/index-main.astro to src/pages/index.astro
 // 3. Rebuild and redeploy
 
-const base = import.meta.env.BASE_URL;
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-// In production, redirect to coming-soon page
-// In development, allow viewing the main site at http://localhost:4321/index-main
-if (import.meta.env.PROD) {
-  return Astro.redirect(`${base}coming-soon`);
-}
+const base = import.meta.env.BASE_URL;
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redirecting...</title>
-  <meta http-equiv="refresh" content="0;url={base}coming-soon">
-</head>
-<body>
-  <script is:inline define:vars={{ base }}>
-    window.location.href = `${base}coming-soon`;
-  </script>
-  <p style="font-family: system-ui; padding: 2rem; text-align: center;">
-    Redirecting to coming soon page...
-  </p>
-</body>
-</html>
+<BaseLayout title="Coming Soon – Bryce Kennedy">
+  <div slot="hero">
+    <section class="min-h-screen flex items-center justify-center">
+      <style is:global>
+        #site-header {
+          display: none !important;
+        }
+      </style>
+      <div class="max-w-3xl mx-auto px-4 text-center space-y-8">
+        <div class="flex justify-center mb-8">
+          <div
+            class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-brand-orange overflow-hidden bg-surface-card"
+          >
+            <img
+              src={`${base}images/profile-large.jpg`}
+              alt="Bryce Kennedy"
+              loading="lazy"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="text-xs uppercase tracking-[0.25em] text-sky-300/80">
+            <span>UX Engineering · Frontend Development · Content Management Systems</span>
+          </div>
+
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight">
+            Bryce Kennedy
+          </h1>
+
+          <h2 class="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight text-slate-300">
+            Portfolio Coming Soon
+          </h2>
+
+          <p class="text-slate-400 max-w-xl mx-auto text-base md:text-lg pt-0">
+            I'm currently putting the finishing touches on my portfolio. Check back soon to see my latest work in UX engineering and frontend development.
+          </p>
+        </div>
+
+        <div class="flex flex-col md:flex-row md:flex-wrap gap-6 text-sm justify-center pt-8 w-full">
+          <div class="flex flex-col items-center gap-2 w-full md:w-auto">
+            <a
+              href="https://www.linkedin.com/in/2kennedyb"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 border border-brand-orange bg-brand-orange text-white hover:opacity-90 transition w-full md:w-auto"
+            >
+              <img
+                src={`${base}icons/linkedin-svgrepo-com.svg`}
+                alt=""
+                class="w-5 h-5 brightness-0 invert"
+              />
+              Connect on LinkedIn
+            </a>
+            <p class="text-xs text-slate-400">linkedin.com/in/2kennedyb</p>
+          </div>
+
+          <div class="flex flex-col items-center gap-2 w-full md:w-auto">
+            <a
+              href="mailto:kennedybryce2@gmail.com"
+              class="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 border border-white text-text-light hover:text-brand-orange hover:border-brand-orange transition w-full md:w-auto"
+            >
+              <img
+                src={`${base}icons/email-svgrepo-com.svg`}
+                alt=""
+                class="w-5 h-5 brightness-0 invert"
+              />
+              Get in touch
+            </a>
+            <p class="text-xs text-slate-400">kennedybryce2@gmail.com</p>
+          </div>
+
+          <div class="flex flex-col items-center gap-2 w-full md:w-auto">
+            <a
+              href={`${base}documents/Bryce_Kennedy_Resume_2026.pdf`}
+              download
+              class="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 border border-white text-text-light hover:text-brand-orange hover:border-brand-orange transition w-full md:w-auto"
+            >
+              <img
+                src={`${base}icons/resume-portfolio-svgrepo-com.svg`}
+                alt=""
+                class="w-5 h-5 brightness-0 invert"
+              />
+              Download Resume
+            </a>
+            <p class="text-xs text-slate-400">PDF</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
