@@ -28,10 +28,67 @@ const base = import.meta.env.BASE_URL;
 
         <!-- Project Header -->
         <header class="space-y-4 mb-12">
-            <div class="flex flex-wrap gap-2 text-xs mb-4">
-                <span class="px-2 py-1 bg-gray-dark/50 rounded">React</span>
-                <span class="px-2 py-1 bg-gray-dark/50 rounded">Real-time</span>
-                <span class="px-2 py-1 bg-gray-dark/50 rounded">CMS</span>
+            <div class="flex flex-wrap gap-3 mb-4">
+                <div class="flex flex-col items-center gap-1">
+                    <div
+                        class="p-2 rounded-full border border-gray-dark/70 bg-surface-card"
+                    >
+                        <img
+                            src={`${base}icons/wordpress-svgrepo-com.svg`}
+                            alt=""
+                            class="w-5 h-5 brightness-0 invert"
+                        />
+                    </div>
+                    <span class="text-[10px] text-slate-400">WordPress</span>
+                </div>
+                <div class="flex flex-col items-center gap-1">
+                    <div
+                        class="p-2 rounded-full border border-gray-dark/70 bg-surface-card"
+                    >
+                        <img
+                            src={`${base}icons/typescript-svgrepo-com.svg`}
+                            alt=""
+                            class="w-5 h-5 brightness-0 invert"
+                        />
+                    </div>
+                    <span class="text-[10px] text-slate-400">TypeScript</span>
+                </div>
+                <div class="flex flex-col items-center gap-1">
+                    <div
+                        class="p-2 rounded-full border border-gray-dark/70 bg-surface-card"
+                    >
+                        <img
+                            src={`${base}icons/javascript-svgrepo-com.svg`}
+                            alt=""
+                            class="w-5 h-5 brightness-0 invert"
+                        />
+                    </div>
+                    <span class="text-[10px] text-slate-400">JavaScript</span>
+                </div>
+                <div class="flex flex-col items-center gap-1">
+                    <div
+                        class="p-2 rounded-full border border-gray-dark/70 bg-surface-card"
+                    >
+                        <img
+                            src={`${base}icons/html5-01-svgrepo-com.svg`}
+                            alt=""
+                            class="w-5 h-5 brightness-0 invert"
+                        />
+                    </div>
+                    <span class="text-[10px] text-slate-400">HTML</span>
+                </div>
+                <div class="flex flex-col items-center gap-1">
+                    <div
+                        class="p-2 rounded-full border border-gray-dark/70 bg-surface-card"
+                    >
+                        <img
+                            src={`${base}icons/css3-01-svgrepo-com.svg`}
+                            alt=""
+                            class="w-5 h-5 brightness-0 invert"
+                        />
+                    </div>
+                    <span class="text-[10px] text-slate-400">CSS</span>
+                </div>
             </div>
 
             <h1 class="text-3xl md:text-4xl font-semibold">
@@ -71,26 +128,82 @@ const base = import.meta.env.BASE_URL;
                     <h2 class="text-2xl font-semibold mb-3">
                         Digital Signage CMS for American Airlines
                     </h2>
+
                     <p class="case-summary mb-4">
                         As part of American Airlines’ new corporate campus
-                        initiative, I developed a
-                        <strong
+                        initiative, I designed and built a <strong
                             >custom digital signage content management system</strong
-                        > to power a network of over 100 screens and six large-format
-                        LED displays across multiple buildings and global offices.
-                        Off-the-shelf signage solutions couldn’t meet the need for
-                        creative flexibility, real-time data integration, and centralized
-                        control—so I built one from the ground up. Using a
-                        <strong>heavily customized WordPress foundation</strong
+                        > to power a network of <strong>100+ screens</strong> and
+                        <strong>six large-format LED displays</strong>
+                        across multiple buildings and global offices. Off-the-shelf
+                        signage platforms couldn’t meet the need for <strong
+                            >creative flexibility</strong
+                        >,
+                        <strong>real-time data integration</strong>, and <strong
+                            >centralized control</strong
+                        >—so I built one from the ground up. Using a <strong
+                            >heavily customized WordPress foundation</strong
                         >, the platform lets Corporate Communications schedule,
                         manage, and animate content seamlessly across
                         devices—from small embedded screens to massive LED
-                        walls—supporting <strong
-                            >HD video, live API data feeds, and continuous 24/7
-                            playback</strong
-                        > with strict brand consistency and performance optimization.
+                        walls— supporting <strong>HD video</strong>, <strong
+                            >live API-driven data feeds</strong
+                        >, and
+                        <strong>continuous 24/7 playback</strong> with strict brand
+                        consistency and performance optimization.
                     </p>
+
+                    <figure class="my-8">
+                        <div
+                            class="aspect-video bg-gray-dark/30 overflow-hidden rounded"
+                        >
+                            <video
+                                autoplay
+                                loop
+                                muted
+                                playsinline
+                                class="w-full h-full object-cover"
+                            >
+                                <source
+                                    src={`${base}videos/digital-signage-vis-01.mp4`}
+                                    type="video/mp4"
+                                />
+                            </video>
+                        </div>
+                        <figcaption class="mt-3 text-sm text-slate-400">
+                            <strong
+                                >Live data visualizations on large-format
+                                displays.</strong
+                            >
+                            Real-time operational and performance data streamed from
+                            internal APIs and rendered as readable, animated visualizations—designed
+                            to remain legible and meaningful even at architectural
+                            scale.
+                        </figcaption>
+                    </figure>
                 </header>
+
+                <section
+                    id="overview"
+                    class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
+                >
+                    <h3 class="text-xl font-semibold mb-3">Overview</h3>
+                    <p class="mb-4">
+                        The campus deployment combined high-impact LED walls
+                        with a wide network of smaller information screens. The
+                        goal was to deliver immersive multimedia, real-time
+                        updates, and location-relevant communications while
+                        maintaining a cohesive visual language and reliable,
+                        always-on performance.
+                    </p>
+                    <p class="mb-4">
+                        The end result was a purpose-built CMS and delivery
+                        pipeline optimized for diverse hardware
+                        profiles—designed so non-technical editors could launch
+                        and manage content confidently without engineering
+                        involvement.
+                    </p>
+                </section>
 
                 <section
                     id="requirements-and-challenges"
@@ -99,6 +212,7 @@ const base = import.meta.env.BASE_URL;
                     <h3 class="text-xl font-semibold mb-3">
                         Requirements &amp; Challenges
                     </h3>
+
                     <p class="mb-4">
                         When American Airlines opened its new corporate campus,
                         it created an opportunity to reimagine employee
@@ -109,18 +223,78 @@ const base = import.meta.env.BASE_URL;
                         canvases designed to bring culture and communications to
                         life.
                     </p>
+
+                    <figure class="my-8">
+                        <div
+                            class="aspect-video bg-gray-dark/30 overflow-hidden rounded"
+                        >
+                            <video
+                                autoplay
+                                loop
+                                muted
+                                playsinline
+                                class="w-full h-full object-cover"
+                            >
+                                <source
+                                    src={`${base}videos/digital-display-monitors-01.mp4`}
+                                    type="video/mp4"
+                                />
+                            </video>
+                        </div>
+                        <figcaption class="mt-3 text-sm text-slate-400">
+                            <strong
+                                >Adaptive data presentation on embedded
+                                displays.</strong
+                            >
+                            The same real-time data feeds were reflowed and optimized
+                            for lower-power embedded devices, preserving clarity and
+                            performance while adapting layouts, animation density,
+                            and refresh behavior.
+                        </figcaption>
+                    </figure>
+
                     <p class="mb-4">
                         The Corporate Communications team needed a centralized
                         system to
                         <strong>control, curate, and schedule content</strong> across
-                        this growing digital ecosystem. Existing signage products
-                        offered useful features, but not the level of <strong
+                        this growing ecosystem. Existing signage products offered
+                        useful features, but not the level of
+                        <strong
                             >customization, scalability, and creative
                             flexibility</strong
-                        > required. A <strong>bespoke CMS</strong> was necessary—capable
-                        of managing hundreds of displays, accommodating diverse hardware,
-                        and delivering dynamic, brand-consistent content 24/7.
+                        > required. A
+                        <strong>bespoke CMS</strong> was necessary—capable of managing
+                        hundreds of displays, accommodating diverse hardware, and
+                        delivering dynamic, brand-consistent content 24/7.
                     </p>
+
+                    <h4 class="text-lg font-semibold mt-6 mb-2">
+                        Key challenges
+                    </h4>
+                    <ul class="list-none space-y-3 mb-4 pl-0 ml-0">
+                        <li>
+                            <strong>Centralized control at scale:</strong> One system
+                            to manage campaigns, schedules, and updates across many
+                            screens and locations.
+                        </li>
+                        <li>
+                            <strong>Hardware diversity:</strong> High-performance
+                            PCs for LED walls vs. lightweight embedded devices for
+                            smaller displays—requiring different delivery strategies.
+                        </li>
+                        <li>
+                            <strong>Always-on reliability:</strong> Continuous 24/7
+                            playback with smooth transitions between video, animation,
+                            and live data.
+                        </li>
+                        <li>
+                            <strong
+                                >Creative flexibility with brand safety:</strong
+                            > Motion and layout needed to feel dynamic while staying
+                            consistent and brand-correct.
+                        </li>
+                    </ul>
+
                     <p class="mb-4">
                         Six large-format LED displays—each roughly the size of a
                         shipping container
@@ -132,6 +306,34 @@ const base = import.meta.env.BASE_URL;
                         continuously and transition smoothly between media types while
                         maintaining brand fidelity.
                     </p>
+
+                    <figure class="my-8">
+                        <div class="bg-gray-dark/30 overflow-hidden rounded">
+                            <video
+                                autoplay
+                                loop
+                                muted
+                                playsinline
+                                class="w-full h-full object-cover"
+                            >
+                                <source
+                                    src={`${base}videos/digital-display-transition-01.mp4`}
+                                    type="video/mp4"
+                                />
+                            </video>
+                        </div>
+                        <figcaption class="mt-3 text-sm text-slate-400">
+                            <strong
+                                >Brand-safe motion across large-format LED
+                                walls.</strong
+                            >
+                            Smooth, hardware-aware transitions between full-screen
+                            video, motion graphics, and live content ensured visual
+                            continuity across massive LED displays—without dropped
+                            frames or visible tearing during 24/7 playback.
+                        </figcaption>
+                    </figure>
+
                     <p class="mb-4">
                         Beyond the headline displays, a network of <strong
                             >100+ smaller screens</strong
@@ -139,209 +341,14 @@ const base = import.meta.env.BASE_URL;
                         with hundreds more in hubs and offices worldwide. These
                         localized screens deliver real-time updates, performance
                         metrics, and employee communications tailored to each
-                        location. Hardware diversity was a major challenge: LED
-                        walls ran on high-performance PCs, while smaller
-                        displays relied on lightweight embedded
-                        devices—demanding a <strong
+                        location. Hardware diversity was a major
+                        challenge—demanding a <strong
                             >dual-architecture approach</strong
-                        > to preserve visual quality and interactivity across environments.
+                        >
+                        to preserve visual quality and frame pacing across environments.
                     </p>
-                </section>
-
-                <div class="aspect-video bg-gray-dark/30 overflow-hidden">
-                    <video
-                        autoplay
-                        loop
-                        muted
-                        playsinline
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    >
-                        <source
-                            src={`${base}videos/digital-signage.mp4`}
-                            type="video/mp4"
-                        />
-                    </video>
-                </div>
-
-                <section
-                    id="solution-and-implementation"
-                    class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
-                >
-                    <h3 class="text-xl font-semibold mb-3">
-                        Solution &amp; Implementation
-                    </h3>
-                    <p class="mb-4">
-                        The solution was built on a <strong
-                            >highly customized WordPress platform</strong
-                        >, chosen for its reliability, extensibility, and proven
-                        track record with internal tools. The admin interface
-                        was <strong>redesigned end-to-end</strong> to create a purpose-built
-                        content experience tailored to editors and corporate communicators.
-                    </p>
-                    <ul class="list-none space-y-3 mb-4 pl-0 ml-0">
-                        <li class="mb-2">
-                            <strong>Custom types &amp; themes:</strong> Structured
-                            support for full-screen images, looping videos, live data
-                            feeds, and performance dashboards.
-                        </li>
-                        <li class="mb-2">
-                            <strong>Bespoke plugins:</strong> Advanced scheduling
-                            and playback control (by time, location, or screen type),
-                            <strong>data integrations</strong> to internal APIs, and
-                            automated content delivery/optimization.
-                        </li>
-                        <li class="mb-2">
-                            <strong>“News grid” layout:</strong> Coordinated regions
-                            capable of <strong
-                                >multiple simultaneous video streams and
-                                animations</strong
-                            >, with smooth transitions and brand-safe motion.
-                        </li>
-                        <li class="mb-2">
-                            <strong>Dual-architecture delivery:</strong> Optimized
-                            pipelines for both PC-driven LED walls and lower-power
-                            embedded players, ensuring consistent fidelity and frame
-                            pacing.
-                        </li>
-                    </ul>
-                    <p>
-                        Despite the complexity under the hood, the editorial
-                        experience remained intuitive and fast, enabling
-                        non-technical users to launch and manage content with
-                        confidence.
-                    </p>
-                </section>
-
-                <section
-                    id="results-and-impact"
-                    class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
-                >
-                    <h3 class="text-xl font-semibold mb-3">
-                        Results &amp; Impact
-                    </h3>
-                    <ul class="list-none space-y-3 mb-4 pl-0 ml-0">
-                        <li>
-                            <strong>Unified control:</strong> The communications team
-                            manages every display from a single, streamlined dashboard—scheduling
-                            campaigns, swapping content, and triggering live updates.
-                        </li>
-                        <li>
-                            <strong>24/7 reliability:</strong> Continuous operation
-                            with minimal downtime, handling HD video, data visualizations,
-                            and motion graphics concurrently.
-                        </li>
-                        <li>
-                            <strong>Brand consistency at scale:</strong> Smooth transitions
-                            and templated motion ensure a cohesive visual language
-                            across hardware profiles.
-                        </li>
-                        <li>
-                            <strong>Showcase installations:</strong> Large-format
-                            LED walls became campus landmarks, greeting guests and
-                            energizing employee spaces with dynamic content.
-                        </li>
-                        <li>
-                            <strong>Foundation for growth:</strong> The CMS continues
-                            to support expansion to additional hubs and offices, demonstrating
-                            long-term adaptability.
-                        </li>
-                    </ul>
-                </section>
-
-                <section
-                    id="role-and-responsibilities"
-                    class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
-                >
-                    <h3 class="text-xl font-semibold mb-3">
-                        Role &amp; Responsibilities
-                    </h3>
-                    <ul class="list-none space-y-3 mb-4 pl-0 ml-0">
-                        <li>
-                            <strong
-                                >Platform architecture &amp; development:</strong
-                            > Designed and built a custom WordPress-based CMS to manage
-                            hundreds of screens and content types.
-                        </li>
-                        <li>
-                            <strong>Custom plugin engineering:</strong> Scheduling/playback
-                            automation and integrations with live data APIs for dynamic
-                            content.
-                        </li>
-                        <li>
-                            <strong>Admin UX design:</strong> Reimagined WordPress
-                            admin into a focused, brand-specific control center optimized
-                            for editor workflow.
-                        </li>
-                        <li>
-                            <strong>Performance optimization:</strong> Caching, asset
-                            delivery, and media tuning to support multiple concurrent
-                            video streams and animations—even on embedded devices.
-                        </li>
-                        <li>
-                            <strong>Cross-team collaboration:</strong> Worked with
-                            Corporate Communications, IT, and Facilities to align
-                            technical capabilities with brand and operational goals.
-                        </li>
-                    </ul>
                 </section>
             </section>
-
-            <!-- <section>
-        <h2 class="text-2xl font-semibold mb-4">Overview</h2>
-        <p class="text-slate-300">
-          Designed and implemented a comprehensive digital signage platform that powers displays in airports, 
-          offices, and operational facilities across American Airlines' global network.
-        </p>
-      </section>
-
-      <section>
-        <h2 class="text-2xl font-semibold mb-4">Challenge</h2>
-        <p class="text-slate-300">
-          The organization needed a scalable solution that could:
-        </p>
-        <ul class="list-disc list-inside space-y-2 text-slate-300 ml-4">
-          <li>Deliver real-time content updates to thousands of displays</li>
-          <li>Support multiple content types (video, images, live data feeds)</li>
-          <li>Provide non-technical users with an intuitive content management interface</li>
-          <li>Handle network disruptions gracefully with offline caching</li>
-          <li>Ensure 99.9% uptime for mission-critical displays</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2 class="text-2xl font-semibold mb-4">Solution</h2>
-        <p class="text-slate-300">
-          I architected and built the platform with the following key features:
-        </p>
-        <ul class="list-disc list-inside space-y-2 text-slate-300 ml-4">
-          <li>React-based content player with optimized rendering</li>
-          <li>Custom CMS with drag-and-drop scheduling interface</li>
-          <li>WebSocket-based real-time content distribution</li>
-          <li>Progressive Web App for offline functionality</li>
-          <li>Comprehensive monitoring and analytics dashboard</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2 class="text-2xl font-semibold mb-4">Results</h2>
-        <p class="text-slate-300">
-          The platform successfully serves content to over 3,000 displays globally, with an average uptime 
-          exceeding 99.95%. Content authors can schedule and update displays in real-time, and the system 
-          processes over 10 million content impressions monthly.
-        </p>
-      </section>
-
-      <section>
-        <h2 class="text-2xl font-semibold mb-4">Technologies Used</h2>
-        <div class="flex flex-wrap gap-2">
-          <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full text-sm">React</span>
-          <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full text-sm">Node.js</span>
-          <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full text-sm">WebSocket</span>
-          <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full text-sm">PWA</span>
-          <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full text-sm">Redis</span>
-          <span class="px-3 py-1.5 bg-surface-card border border-gray-dark/70 rounded-full text-sm">PostgreSQL</span>
-        </div>
-      </section> -->
         </div>
     </article>
 </BaseLayout>

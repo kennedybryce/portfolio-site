@@ -82,7 +82,7 @@ const base = import.meta.env.BASE_URL;
         left: 0;
         width: 100%;
         opacity: 0;
-        animation: taglineCycle 15s infinite ease-in-out;
+        animation: taglineCycle 20s infinite ease-in-out;
         white-space: nowrap;
         transition: opacity 1s ease-in-out;
       }
@@ -99,17 +99,21 @@ const base = import.meta.env.BASE_URL;
         animation-delay: 10s;
       }
 
+      .tagline-item:nth-child(4) {
+        animation-delay: 15s;
+      }
+
       @keyframes taglineCycle {
         0% {
           opacity: 0;
         }
-        5% {
+        4% {
           opacity: 1;
         }
-        28% {
+        21% {
           opacity: 1;
         }
-        33% {
+        25% {
           opacity: 0;
         }
         100% {
@@ -117,23 +121,6 @@ const base = import.meta.env.BASE_URL;
         }
       }
 
-      /* Show static tagline on desktop */
-      @media (min-width: 768px) {
-        .tagline-container {
-          height: auto;
-        }
-
-        .tagline-item {
-          position: static;
-          opacity: 1;
-          animation: none;
-          display: inline;
-        }
-
-        .tagline-item:not(:last-child)::after {
-          content: " · ";
-        }
-      }
     </style>
   </head>
   <body class="min-h-screen bg-surface-dark text-text-light">
@@ -173,22 +160,57 @@ const base = import.meta.env.BASE_URL;
                     style="font-size:.6rem;"
                   >
                     <span class="tagline-item">UX Engineering</span>
-                    <span class="tagline-item">Frontend Development</span>
-                    <span class="tagline-item">Content Management Systems</span>
+                    <span class="tagline-item">Front-End Development</span>
+                    <span class="tagline-item">Design Systems</span>
+                    <span class="tagline-item">Enterprise Platforms</span>
+
+                    
                   </div>
                   <span class="header-name inline">Bryce Kennedy</span>
                 </div>
               </a>
             </div>
 
-            <nav class="flex items-center gap-4 text-sm header-nav">
+            <nav class="flex items-center gap-3 header-nav">
               <a
-                href="#projects"
-                class="hover:text-brand-orange transition-colors">Projects</a
+                href="https://www.linkedin.com/in/2kennedyb"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="p-2 rounded-full border border-brand-orange bg-brand-orange hover:opacity-90 transition"
+                aria-label="LinkedIn"
+                title="Connect on LinkedIn"
               >
-              <a href="#about" class="hover:text-brand-orange transition-colors"
-                >About</a
+                <img
+                  src={`${base}icons/linkedin-svgrepo-com.svg`}
+                  alt=""
+                  class="w-4 h-4 brightness-0 invert"
+                />
+              </a>
+              <a
+                href="mailto:kennedybryce2@gmail.com"
+                class="p-2 rounded-full border border-white hover:border-brand-orange transition"
+                aria-label="Email"
+                title="Get in touch"
               >
+                <img
+                  src={`${base}icons/email-svgrepo-com.svg`}
+                  alt=""
+                  class="w-4 h-4 brightness-0 invert"
+                />
+              </a>
+              <a
+                href={`${base}documents/Bryce_Kennedy_Resume_2026.pdf`}
+                download
+                class="p-2 rounded-full border border-white hover:border-brand-orange transition"
+                aria-label="Resume"
+                title="Download Resume"
+              >
+                <img
+                  src={`${base}icons/resume-portfolio-svgrepo-com.svg`}
+                  alt=""
+                  class="w-4 h-4 brightness-0 invert"
+                />
+              </a>
             </nav>
           </div>
         </div>
@@ -300,7 +322,8 @@ const base = import.meta.env.BASE_URL;
         const updateHeaderVisibility = () => {
           if (heroElement) {
             const heroRect = heroElement.getBoundingClientRect();
-            const shouldShowHeader = heroRect.bottom < 0;
+            // Show header when hero is about 50% scrolled off screen
+            const shouldShowHeader = heroRect.bottom < window.innerHeight * 0.5;
 
             console.log(
               "Hero bottom:",
