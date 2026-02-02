@@ -1,0 +1,131 @@
+/* Light theme inspired by hellodani.co */
+/* To test: import this file in BaseLayout.astro instead of global.css */
+
+@import "tailwindcss";
+
+/* Inter font from Google Fonts - add to <head>:
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+*/
+
+@theme {
+  /* Warm, light color palette */
+  --color-brand-orange: #0015d4; /* Electric blue accent */
+  --color-brand-pink: #ff8fca;
+  --color-brand-yellow: #ffcb41;
+  --color-gray-light: #292929;
+  --color-gray-medium: #54565A;
+  --color-gray-dark: #e4e3dd;
+  --color-gray-black: #000000;
+  --color-surface-dark: #f6f5f1; /* Warm off-white */
+  --color-surface-card: #ffffff;
+  --color-text-light: #000000;
+  --color-text-muted: #54565A;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #f6f5f1;
+  color: #000;
+}
+
+/* Override dark theme classes */
+.dark {
+  background-color: #f6f5f1;
+  color: #000;
+}
+
+/* Card styles - light with subtle shadows */
+.bg-surface-card {
+  background-color: #ffffff !important;
+  box-shadow: -4px 6px 12px 0 rgba(0, 0, 0, 0.08);
+}
+
+/* Border adjustments for light theme */
+.border-gray-dark\/70 {
+  border-color: #e4e3dd !important;
+}
+
+/* Text color overrides */
+.text-slate-300,
+.text-slate-400 {
+  color: #54565A !important;
+}
+
+.text-text-light {
+  color: #000 !important;
+}
+
+/* Accent color - electric blue instead of orange */
+.text-brand-orange {
+  color: #0015d4 !important;
+}
+
+.bg-brand-orange {
+  background-color: #0015d4 !important;
+}
+
+.border-brand-orange {
+  border-color: #0015d4 !important;
+}
+
+.hover\:text-brand-orange:hover {
+  color: #0015d4 !important;
+}
+
+.hover\:border-brand-orange:hover,
+.hover\:border-brand-orange\/50:hover {
+  border-color: #0015d4 !important;
+}
+
+/* Header adjustments */
+.site-header {
+  background: rgba(246, 245, 241, 0.95) !important;
+  border-bottom-color: #e4e3dd !important;
+}
+
+/* Profile image border */
+.border-brand-orange {
+  border-color: #0015d4 !important;
+}
+
+/* Tech icons - remove invert for light background */
+.brightness-0.invert {
+  filter: none !important;
+}
+
+/* Larger border radius for cards (more rounded) */
+.rounded-lg {
+  border-radius: 16px !important;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+/* Sky/blue text adjustments */
+.text-sky-300\/80 {
+  color: #0015d4 !important;
+  opacity: 0.8;
+}
+
+/* Serif accent for headings (optional - uncomment to use) */
+/*
+h1, h2 {
+  font-family: "Libre Baskerville", Georgia, serif;
+}
+*/
+
+@keyframes astro-drift {
+  0%   { transform: translate(-2%, -1%) scale(1.02); }
+  100% { transform: translate( 2%,  1%) scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-astro-drift {
+    animation: none !important;
+  }
+}

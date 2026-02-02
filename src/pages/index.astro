@@ -1,105 +1,454 @@
 ---
-// TEMPORARY: Coming Soon page is serving as the index
-// To switch back to main site:
-// 1. Delete this file (src/pages/index.astro)
-// 2. Rename src/pages/index-main.astro to src/pages/index.astro
-// 3. Rebuild and redeploy
-
 import BaseLayout from "../layouts/BaseLayout.astro";
+import RiveIconButton from "../components/RiveIconButton";
+import RiveActionButton from "../components/RiveActionButton";
+import TechIconShowcase from "../components/TechIconShowcase";
+import RiveTechIconGroup from "../components/RiveTechIconGroup";
 
 const base = import.meta.env.BASE_URL;
 ---
 
-<BaseLayout title="Coming Soon – Bryce Kennedy">
-  <div slot="hero">
-    <section class="min-h-screen flex items-center justify-center">
-      <style is:global>
-        #site-header {
-          display: none !important;
-        }
-      </style>
+<BaseLayout title="Home – Bryce Kennedy">
+  <div slot="hero" class="snap-section">
+    <section class="min-h-screen flex items-center justify-center" id="test">
       <div class="max-w-3xl mx-auto px-4 text-center space-y-8">
-        <div class="flex justify-center mb-8">
-          <div
-            class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-brand-orange overflow-hidden bg-surface-card"
-          >
-            <img
-              src={`${base}images/profile-large.jpg`}
-              alt="Bryce Kennedy"
-              loading="lazy"
-              class="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-
         <div class="space-y-4">
           <div class="text-xs uppercase tracking-[0.25em] text-sky-300/80">
-            <span>UX Engineering · Frontend Development · Content Management Systems</span>
+            <span
+              >UX Engineering · Front-End Development · Design Systems ·
+              Enterprise Platforms</span
+            >
           </div>
 
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight">
-            Bryce Kennedy
+          <h1
+            class="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight text-slate-300"
+          >
+            I design and build reliable, high-visibility interfaces for complex
+            enterprise systems.
           </h1>
 
-          <h2 class="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight text-slate-300">
-            Portfolio Coming Soon
-          </h2>
+          <h3
+            class="text-1xl md:text-5xl lg:text-2xl font-semibold leading-tight"
+          >
+            The online portfolio of Bryce Kennedy
+          </h3>
 
           <p class="text-slate-400 max-w-xl mx-auto text-base md:text-lg pt-0">
-            I'm currently putting the finishing touches on my portfolio. Check back soon to see my latest work in UX engineering and frontend development.
+            I’m a UX-minded engineer with deep experience building
+            enterprise-scale interfaces using Angular, React, and modern
+            intranet platforms. My work spans internal tools, digital signage
+            systems, and shared UI architectures, with a focus on integrations
+            that keep complex enterprise experiences fast, consistent, and
+            maintainable.
           </p>
         </div>
 
-        <div class="flex flex-col md:flex-row md:flex-wrap gap-6 text-sm justify-center pt-8 w-full">
-          <div class="flex flex-col items-center gap-2 w-full md:w-auto">
-            <a
-              href="https://www.linkedin.com/in/2kennedyb"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 border border-brand-orange bg-brand-orange text-white hover:opacity-90 transition w-full md:w-auto"
-            >
-              <img
-                src={`${base}icons/linkedin-svgrepo-com.svg`}
-                alt=""
-                class="w-5 h-5 brightness-0 invert"
-              />
-              Connect on LinkedIn
-            </a>
-            <p class="text-xs text-slate-400">linkedin.com/in/2kennedyb</p>
-          </div>
-
-          <div class="flex flex-col items-center gap-2 w-full md:w-auto">
-            <a
-              href="mailto:kennedybryce2@gmail.com"
-              class="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 border border-white text-text-light hover:text-brand-orange hover:border-brand-orange transition w-full md:w-auto"
-            >
-              <img
-                src={`${base}icons/email-svgrepo-com.svg`}
-                alt=""
-                class="w-5 h-5 brightness-0 invert"
-              />
-              Get in touch
-            </a>
-            <p class="text-xs text-slate-400">kennedybryce2@gmail.com</p>
-          </div>
-
-          <div class="flex flex-col items-center gap-2 w-full md:w-auto">
-            <a
-              href={`${base}documents/Bryce_Kennedy_Resume_2026.pdf`}
-              download
-              class="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 border border-white text-text-light hover:text-brand-orange hover:border-brand-orange transition w-full md:w-auto"
-            >
-              <img
-                src={`${base}icons/resume-portfolio-svgrepo-com.svg`}
-                alt=""
-                class="w-5 h-5 brightness-0 invert"
-              />
-              Download Resume
-            </a>
-            <p class="text-xs text-slate-400">PDF</p>
-          </div>
+        <div
+          class="flex flex-col md:flex-row md:flex-wrap gap-6 text-sm justify-center pt-8 w-full"
+        >
+          <RiveActionButton
+            client:load
+            artboard="resume"
+            text="Download Resume"
+            subtitle="PDF Format"
+            href={`${base}documents/Bryce_Kennedy_Resume_2026.pdf`}
+            variant="primary"
+            download
+          />
+          <RiveActionButton
+            client:load
+            artboard="linkedin"
+            text="Connect on LinkedIn"
+            subtitle="linkedin.com/in/2kennedyb"
+            href="https://www.linkedin.com/in/2kennedyb"
+            external
+          />
+          <RiveActionButton
+            client:load
+            artboard="email"
+            text="Get in touch"
+            subtitle="kennedybryce2@gmail.com"
+            href="mailto:kennedybryce2@gmail.com"
+          />
+          
         </div>
       </div>
     </section>
   </div>
+
+  <!-- Projects Section -->
+  <section
+    id="projects"
+    class="snap-section max-w-5xl mx-auto px-4 py-16 md:py-20 space-y-8 fade-section min-h-screen flex flex-col justify-center"
+  >
+    <div class="space-y-4">
+      <h2 class="text-2xl md:text-3xl font-semibold">Recent Projects</h2>
+      <p>
+        These projects showcase recent work designing and building
+        high-visibility interfaces for complex enterprise systems. They reflect
+        my approach to UX engineering, front-end architecture, and creating
+        scalable solutions across intranet platforms, internal tools, and
+        digital signage environments.
+      </p>
+    </div>
+
+    <!-- Project Cards Grid -->
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-2 mt-8">
+      <!-- Project Card 1 -->
+      <a
+        href={`${base}projects/digital-signage`}
+        class="bg-surface-card border border-gray-dark/70 rounded-lg overflow-hidden hover:border-brand-orange/50 transition flex flex-col group"
+      >
+        <div class="aspect-video bg-gray-dark/30 overflow-hidden">
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          >
+            <source
+              src={`${base}videos/digital-signage-intro.mp4`}
+              type="video/mp4"
+            />
+          </video>
+        </div>
+        <div class="p-6 flex-1 flex flex-col gap-3">
+          <h3
+            class="text-lg font-semibold group-hover:text-brand-orange transition-colors"
+          >
+            Digital Signage System
+          </h3>
+          <p class="text-sm text-slate-300">
+            Enterprise real-time content delivery for large-format displays.
+          </p>
+          <div class="mt-auto">
+            <RiveTechIconGroup
+              client:load
+              size="large"
+              icons={[
+                { artboard: "wordpress", label: "WordPress" },
+                { artboard: "typescript", label: "TypeScript" },
+                { artboard: "javascript", label: "JavaScript" },
+                { artboard: "html", label: "HTML" },
+                { artboard: "css", label: "CSS" },
+              ]}
+            />
+          </div>
+        </div>
+      </a>
+
+      <!-- Project Card 2 -->
+      <a
+        href={`${base}projects/jetnet-migration`}
+        class="bg-surface-card border border-gray-dark/70 rounded-lg overflow-hidden hover:border-brand-orange/50 transition flex flex-col group"
+      >
+        <div class="aspect-video bg-gray-dark/30 overflow-hidden">
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          >
+            <source src={`${base}videos/unily-01.mp4`} type="video/mp4" />
+          </video>
+        </div>
+        <div class="p-6 flex-1 flex flex-col gap-3">
+          <h3
+            class="text-lg font-semibold group-hover:text-brand-orange transition-colors"
+          >
+            Unily Intranet Migration
+          </h3>
+          <p class="text-sm text-slate-300">
+            UX engineering and platform migration for a large internal employee
+            portal.
+          </p>
+          <div class="flex flex-wrap gap-3 mt-auto">
+            <RiveTechIconGroup
+              client:load
+              size="large"
+              icons={[
+                { artboard: "unily", label: "Unily" },
+                { artboard: "angular", label: "Angular" },
+                { artboard: "typescript", label: "TypeScript" },
+                { artboard: "javascript", label: "JavaScript" },
+                { artboard: "html", label: "HTML" },
+                { artboard: "css", label: "CSS" },
+              ]}
+            />
+          </div>
+        </div>
+      </a>
+
+      <!-- Project Card 3 -->
+      <a
+        href={`${base}projects/badging-app`}
+        class="bg-surface-card border border-gray-dark/70 rounded-lg overflow-hidden hover:border-brand-orange/50 transition flex flex-col group"
+      >
+        <div class="aspect-video bg-gray-dark/30 overflow-hidden">
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          >
+            <source src={`${base}videos/badging01.mp4`} type="video/mp4" />
+          </video>
+        </div>
+        <div class="p-6 flex-1 flex flex-col gap-3">
+          <h3
+            class="text-lg font-semibold group-hover:text-brand-orange transition-colors"
+          >
+            Security Badging System UI
+          </h3>
+          <p class="text-sm text-slate-300">
+            Modern front-end UI for internal administrative and compliance
+            tools.
+          </p>
+          <div class="flex flex-wrap gap-3 mt-auto">
+            <RiveTechIconGroup
+              client:load
+              size="large"
+              icons={[
+                { artboard: "react", label: "React" },
+                { artboard: "typescript", label: "TypeScript" },
+                { artboard: "javascript", label: "JavaScript" },
+                { artboard: "tailwind", label: "Tailwind" },
+                { artboard: "css", label: "CSS" },
+              ]}
+            />
+          </div>
+        </div>
+      </a>
+
+      <!-- Project Card 4 -->
+      <a
+        href={`${base}projects/mobile-travel`}
+        class="bg-surface-card border border-gray-dark/70 rounded-lg overflow-hidden hover:border-brand-orange/50 transition flex flex-col group"
+      >
+        <div class="aspect-video bg-gray-dark/30 overflow-hidden">
+          <img
+            src={`${base}images/essentials01.jpg`}
+            alt="Mobile travel and news app"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        <div class="p-6 flex-1 flex flex-col gap-3">
+          <h3
+            class="text-lg font-semibold group-hover:text-brand-orange transition-colors"
+          >
+            Mobile Travel and News App
+          </h3>
+          <p class="text-sm text-slate-300">
+            Cross-platform Flutter app combining enterprise travel tools and
+            internal communications into a single mobile experience.
+          </p>
+          <div class="flex flex-wrap gap-3 mt-auto">
+            <RiveTechIconGroup
+              client:load
+              size="large"
+              icons={[
+                { artboard: "flutter", label: "Flutter" },
+                { artboard: "dart", label: "Dart" },
+                { artboard: "html", label: "HTML" },
+                { artboard: "css", label: "CSS" },
+              ]}
+            />
+          </div>
+        </div>
+      </a>
+
+      <!-- Project Card 5 -->
+      <a
+        href={`${base}projects/portfolio-case-study`}
+        class="bg-surface-card border border-gray-dark/70 rounded-lg overflow-hidden hover:border-brand-orange/50 transition flex flex-col group"
+      >
+        <div class="aspect-video bg-gray-dark/30 overflow-hidden">
+          <img
+            src={`${base}images/portfolio-01.jpg`}
+            alt="Video Platform Integration preview"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        <div class="p-6 flex-1 flex flex-col gap-3">
+          <h3
+            class="text-lg font-semibold group-hover:text-brand-orange transition-colors"
+          >
+            This Portfolio Page...
+          </h3>
+          <p class="text-sm text-slate-300">
+            Cross-platform Flutter app combining enterprise travel tools and
+            internal communications into a single mobile experience.
+          </p>
+          <div class="flex flex-wrap gap-3 mt-auto">
+
+            <RiveTechIconGroup
+              client:load
+              icons={[
+                { artboard: "astro", label: "Astro" },
+                { artboard: "react", label: "React" },
+                { artboard: "rive", label: "Rive" },
+                { artboard: "tailwind", label: "Tailwind" }
+              ]}
+            />
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section
+    id="about"
+    class="snap-section max-w-5xl mx-auto px-4 py-16 md:py-20 space-y-8 fade-section min-h-screen flex flex-col justify-center"
+  >
+    <div class="flex flex-col md:flex-row gap-8 items-start">
+      <!-- Profile Image -->
+      <div class="flex-shrink-0 mx-auto md:mx-0">
+        <div
+          class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-brand-orange overflow-hidden bg-surface-card"
+        >
+          <img
+            src={`${base}images/profile-large.jpg`}
+            alt="Bryce Kennedy"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+      <!-- Text Content -->
+      <div class="space-y-4 text-slate-300 text-sm md:text-base">
+        <h2 class="text-2xl md:text-3xl font-semibold">What I do</h2>
+        <p>
+          I'm a UX-minded engineer who has spent the last several years building
+          and maintaining high-visibility internal tools, intranet platforms,
+          and digital signage systems used across large organizations.
+        </p>
+        <p>
+          My recent work at American Airlines focused on delivering reliable,
+          scalable solutions using modern frameworks such as Angular, React, and
+          Unily. I specialize in complex integrations, content management
+          systems, and front-end architectures that help teams ship consistent,
+          maintainable user experiences.
+        </p>
+        <p>
+          Alongside my professional work, I enjoy exploring creative and
+          experimental projects that blend technology and design — including
+          building WordPress themes with Advanced Custom Fields, creating
+          interactive animations with Rive, and experimenting with 3D modeling
+          and printing.
+        </p>
+
+        <!-- Skills/Tech -->
+        <div class="mt-8 space-y-3">
+          <h3 class="text-lg font-semibold">
+            Tech & Tools I use
+          </h3>
+          <p class="text-slate-300 text-sm md:text-base">
+            Technologies change quickly, and I stay adaptable by continuously
+            learning and refining my toolset. Below is a snapshot of the tools
+            and technologies I work with most often today:
+          </p>
+          <TechIconShowcase client:load size="large" />
+        </div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  /* Scroll snap container */
+  :global(body) {
+    scroll-behavior: smooth;
+  }
+
+  /* Only enable scroll snap on larger screens */
+  @media (min-width: 768px) {
+    :global(body) {
+      scroll-snap-type: y proximity;
+    }
+
+    .snap-section {
+      scroll-snap-align: start;
+    }
+  }
+
+  .fade-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition:
+      opacity 0.8s ease-out,
+      transform 0.8s ease-out;
+  }
+
+  .fade-section.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-section.fade-out {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+</style>
+
+<script>
+  // Wait for DOM to be ready
+  function initFadeAnimations() {
+    // Intersection Observer for fade-in/fade-out animations
+    const observerOptions = {
+      root: null,
+      rootMargin: "-50px 0px -50px 0px",
+      threshold: [0, 0.05, 0.1, 0.15, 0.2],
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const target = entry.target as HTMLElement;
+
+        // Calculate how much of the element is visible
+        const visibilityRatio = entry.intersectionRatio;
+
+        if (visibilityRatio > 0.05) {
+          // Element is sufficiently visible - fade in
+          target.classList.add("fade-in");
+          target.classList.remove("fade-out");
+        } else if (!entry.isIntersecting) {
+          // Element is not visible - fade out
+          target.classList.remove("fade-in");
+          target.classList.add("fade-out");
+        }
+      });
+    }, observerOptions);
+
+    // Observe all fade sections
+    const sections = document.querySelectorAll(".fade-section");
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    // Trigger initial check
+    setTimeout(() => {
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const margin = 50;
+
+        // Check if section is in the visible area
+        if (rect.top < windowHeight - margin && rect.bottom > margin) {
+          section.classList.add("fade-in");
+          section.classList.remove("fade-out");
+        }
+      });
+    }, 100);
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initFadeAnimations);
+  } else {
+    initFadeAnimations();
+  }
+</script>

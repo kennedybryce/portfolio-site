@@ -1,0 +1,255 @@
+---
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const techIcons = [
+  { artboard: "flutter", label: "Flutter" },
+  { artboard: "dart", label: "Dart" },
+  { artboard: "html", label: "HTML" },
+  { artboard: "css", label: "CSS" },
+];
+---
+
+<ProjectLayout
+  title="Mobile Travel App – Bryce Kennedy"
+  projectTitle="American Airlines Employee Travel App"
+  description="Designed and built a cross-platform mobile application that enables employees to manage travel reservations, access real-time flight data, and stay connected to company news—all through a single, secure mobile experience."
+  mediaSrc="images/essentials01.jpg"
+  techIcons={techIcons}
+>
+  <section
+    id="case-employee-travel-app"
+    class="case case-section first:mt-0 first:pt-0 first:border-t-0 pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
+  >
+    <!-- Overview -->
+    <section
+      id="overview"
+      class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
+    >
+      <h3 class="text-xl font-semibold mb-3">Overview</h3>
+
+      <p class="mb-4">
+        As part of American Airlines' broader digital transformation efforts, I
+        helped develop a cross-platform mobile application designed specifically
+        for employees. The goal was to provide a
+        <strong>single, secure, and intuitive tool</strong> for managing personal
+        and company-related travel while also serving as a primary channel for internal
+        communications.
+      </p>
+
+      <p class="mb-4">
+        Built with <strong>Flutter</strong>, the app delivers a unified codebase
+        across iOS and Android while maintaining a native look and feel. This
+        approach let our small team cover a worldwide user base without
+        duplicating effort or fragmenting features across platforms.
+      </p>
+    </section>
+
+    <!-- Context & Challenges -->
+    <section
+      id="context-and-challenges"
+      class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
+    >
+      <h3 class="text-xl font-semibold mb-3">Context &amp; Challenges</h3>
+
+      <p class="mb-4">
+        Prior to this app, employees relied on multiple web-based tools to
+        manage travel and access operational updates—many of which weren’t
+        optimized for mobile. The objective was to consolidate these workflows
+        into a reliable, mobile-first experience without sacrificing security,
+        performance, or data accuracy.
+      </p>
+
+      <ul class="list-none space-y-3 mb-4 pl-0 ml-0">
+        <li>
+          <strong>Cross-platform delivery:</strong> Support iOS and Android from a
+          single codebase while maintaining a polished, native-quality UX.
+        </li>
+        <li>
+          <strong>Enterprise-grade security:</strong> Integrate with SSO and biometric
+          authentication while protecting sensitive employee and travel data.
+        </li>
+        <li>
+          <strong>Operational complexity:</strong> Present time-sensitive travel tools—non-rev
+          standby, priority lists, check-in flows, and boarding passes—in a way that’s
+          fast and easy to interpret.
+        </li>
+        <li>
+          <strong>Real-time data:</strong> Keep flight status, gates, and other key
+          data fresh through push-driven updates.
+        </li>
+        <li>
+          <strong>Low-connectivity environments:</strong> Ensure consistent behavior
+          in crowded airport terminals and remote locations by keeping network requests
+          efficient and resilient.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Solution & Architecture -->
+    <section
+      id="solution-and-architecture"
+      class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
+    >
+      <h3 class="text-xl font-semibold mb-3">Solution &amp; Architecture</h3>
+
+      <p class="mb-4">
+        The app was built using <strong>Flutter</strong> to enable rapid cross-platform
+        development while sharing business logic across devices. Backend services
+        were powered by American Airlines’ internal APIs, providing live operational
+        data and booking information.
+      </p>
+
+      <p class="mb-4">
+        For state management, we used a strict <strong>BLoC</strong> architecture
+        supported by the
+        <strong>flutter_bloc</strong> library, separating application logic from UI
+        concerns and enabling predictable, testable flows across complex travel scenarios.
+        
+        Session-critical state was maintained across a user’s session and persisted
+        between sessions where appropriate.
+      </p>
+
+      <p class="mb-4">
+        I led development of the <strong>travel management experience</strong>,
+        focusing on usability, performance, and clear presentation of complex,
+        time-sensitive data. Live flight info and company metrics (including
+        stock price) were delivered via <strong>push-driven updates</strong> so employees
+        always had the freshest information. To support airport connectivity constraints,
+        we also kept API payloads as lean as possible to reduce bandwidth and speed
+        up responses.
+      </p>
+    </section>
+
+    <!-- Image: essentials02 -->
+    <figure class="my-8">
+      <div class="aspect-video bg-gray-dark/30 overflow-hidden rounded">
+        <img
+          src={`${base}images/essentials02.jpg`}
+          alt="Non-rev check-in, verification cards, QR boarding pass, and standby priority list screens"
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <figcaption class="mt-3 text-sm text-slate-400">
+        <strong>Non-rev travel at a glance.</strong>
+        Check in for employee standby flights, pull up verification cards and QR boarding
+        passes, and monitor the standby priority list with live operational updates.
+      </figcaption>
+    </figure>
+
+    <!-- Key Features -->
+    <section
+      id="key-features"
+      class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-6"
+    >
+      <h3 class="text-xl font-semibold mb-3">Key Features</h3>
+
+      <section class="space-y-4">
+        <h4 class="text-lg font-semibold">Travel Management</h4>
+        <p>
+          Employees can view upcoming trips, check in for flights, manage seat
+          selections, cancel or modify standby requests, and monitor upgrade
+          priority and gate changes in real time—designed for quick
+          decision-making on the go.
+        </p>
+      </section>
+
+      <section class="space-y-4">
+        <h4 class="text-lg font-semibold">Real-Time Operational Data</h4>
+        <p>
+          The app integrates directly with internal flight operations APIs to
+          deliver up-to-the-minute status updates. Push-driven refreshes keep
+          critical data current, while lean payloads help maintain
+          responsiveness even in low-connectivity environments.
+        </p>
+      </section>
+
+      <section class="space-y-4">
+        <h4 class="text-lg font-semibold">Company News &amp; Communications</h4>
+        <p>
+          Alongside travel tools, the app serves as a centralized channel for
+          company news, announcements, and notifications— helping employees stay
+          informed wherever they are.
+        </p>
+      </section>
+    </section>
+
+    <!-- Image: essentials03 -->
+    <figure class="my-8">
+      <div class="aspect-video bg-gray-dark/30 overflow-hidden rounded">
+        <img
+          src={`${base}images/essentials03.jpg`}
+          alt="Email trip details and passes, plus company news screens"
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <figcaption class="mt-3 text-sm text-slate-400">
+        <strong>Travel tools + communications in one place.</strong>
+        Email trip details and passes in seconds, then switch seamlessly to company
+        news and announcements without leaving the app.
+      </figcaption>
+    </figure>
+
+    <!-- Results -->
+    <section
+      id="results-and-impact"
+      class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
+    >
+      <h3 class="text-xl font-semibold mb-3">Results &amp; Impact</h3>
+
+      <ul class="list-none space-y-3 mb-4 pl-0 ml-0">
+        <li>
+          <strong>High adoption:</strong> The app became a daily tool for employees
+          managing travel and accessing company updates.
+        </li>
+        <li>
+          <strong>Improved employee experience:</strong> Reduced reliance on legacy
+          web tools by consolidating travel and communications into one mobile interface.
+        </li>
+        <li>
+          <strong>Operational efficiency:</strong> A single shared Flutter codebase
+          enabled faster feature rollout across both platforms and reduced maintenance
+          overhead.
+        </li>
+        <li>
+          <strong>Reliable performance:</strong> Push-driven updates and lean API
+          payloads supported consistent behavior in airports and other low-connectivity
+          environments.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Role -->
+    <section
+      id="role-and-responsibilities"
+      class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
+    >
+      <h3 class="text-xl font-semibold mb-3">Role &amp; Responsibilities</h3>
+
+      <ul class="list-none space-y-3 mb-4 pl-0 ml-0">
+        <li>
+          <strong>Travel experience ownership:</strong> Led design and development
+          of employee travel management workflows (non-rev standby, check-in, passes,
+          and priority lists).
+        </li>
+        <li>
+          <strong>API integration:</strong> Integrated real-time flight and booking
+          APIs with optimized request handling and bandwidth-aware payload design.
+        </li>
+        <li>
+          <strong>State architecture:</strong> Implemented BLoC-based state management
+          via <strong>flutter_bloc</strong> for predictable UI + domain logic separation.
+          
+        </li>
+        <li>
+          <strong>Security implementation:</strong> Implemented enterprise SSO and
+          biometric authentication for secure, seamless access.
+        </li>
+        <li>
+          <strong>Cross-team collaboration:</strong> Worked closely with UX, backend,
+          and platform teams to align functionality with business needs.
+        </li>
+      </ul>
+    </section>
+  </section>
+</ProjectLayout>

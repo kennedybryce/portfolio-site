@@ -1,406 +1,294 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
 const base = import.meta.env.BASE_URL;
+
+const techIcons = [
+  { artboard: "unily", label: "Unily" },
+  { artboard: "angular", label: "Angular" },
+  { artboard: "typescript", label: "TypeScript" },
+  { artboard: "javascript", label: "JavaScript" },
+  { artboard: "html", label: "HTML" },
+  { artboard: "css", label: "CSS" },
+];
 ---
 
-<BaseLayout title="Jetnet Migration – Bryce Kennedy">
-  <article class="max-w-4xl mx-auto px-4 pt-40 pb-16 md:pt-44 md:pb-20">
-    <!-- Back Navigation -->
-    <a
-      href="../"
-      class="inline-flex items-center gap-2 text-sm text-slate-300 hover:text-brand-orange transition-colors mb-8"
+<ProjectLayout
+  title="Jetnet Migration – Bryce Kennedy"
+  projectTitle="Jetnet Migration to Unily"
+  description="Migrated a global, always-on employee intranet from a legacy platform to <strong>Unily</strong>, preserving mission-critical functionality while modernizing the UX and front-end architecture. I worked on a <strong>four-developer team</strong> and owned <strong>all UI customization</strong> and <strong>custom-built functionality</strong>, extending the platform through <strong>Angular Federated Modules</strong>."
+  mediaSrc="videos/unily-01.mp4"
+  techIcons={techIcons}
+>
+  <section
+    id="case-jetnet-migration"
+    class="case case-section first:mt-0 first:pt-0 first:border-t-0 pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
+  >
+    <section
+      id="overview"
+      class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="m15 18-6-6 6-6"></path>
-      </svg>
-      Back to projects
-    </a>
-
-    <!-- Project Header -->
-    <header class="space-y-4 mb-12">
-      <div class="flex flex-wrap gap-3 mb-4">
-        <div class="flex flex-col items-center gap-1">
-          <div
-            class="p-2 rounded-full border border-gray-dark/70 bg-surface-card"
-          >
-            <img
-              src={`${base}icons/wordpress-svgrepo-com.svg`}
-              alt=""
-              class="w-5 h-5 brightness-0 invert"
-            />
-          </div>
-          <span class="text-[10px] text-slate-400">WordPress</span>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <div
-            class="p-2 rounded-full border border-gray-dark/70 bg-surface-card"
-          >
-            <img
-              src={`${base}icons/typescript-svgrepo-com.svg`}
-              alt=""
-              class="w-5 h-5 brightness-0 invert"
-            />
-          </div>
-          <span class="text-[10px] text-slate-400">TypeScript</span>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <div
-            class="p-2 rounded-full border border-gray-dark/70 bg-surface-card"
-          >
-            <img
-              src={`${base}icons/javascript-svgrepo-com.svg`}
-              alt=""
-              class="w-5 h-5 brightness-0 invert"
-            />
-          </div>
-          <span class="text-[10px] text-slate-400">JavaScript</span>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <div
-            class="p-2 rounded-full border border-gray-dark/70 bg-surface-card"
-          >
-            <img
-              src={`${base}icons/html5-01-svgrepo-com.svg`}
-              alt=""
-              class="w-5 h-5 brightness-0 invert"
-            />
-          </div>
-          <span class="text-[10px] text-slate-400">HTML</span>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <div
-            class="p-2 rounded-full border border-gray-dark/70 bg-surface-card"
-          >
-            <img
-              src={`${base}icons/css3-01-svgrepo-com.svg`}
-              alt=""
-              class="w-5 h-5 brightness-0 invert"
-            />
-          </div>
-          <span class="text-[10px] text-slate-400">CSS</span>
-        </div>
-      </div>
-
-      <h1 class="text-3xl md:text-4xl font-semibold">
-        Jetnet Migration to Unily
-      </h1>
-
-      <div class="aspect-video bg-gray-dark/30 overflow-hidden">
-        <video
-          autoplay
-          loop
-          muted
-          playsinline
-          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-        >
-          <source
-            src={`${base}videos/digital-signage-intro.mp4`}
-            type="video/mp4"
-          />
-        </video>
-      </div>
-
-      <p class="text-lg text-slate-300">
-        Migrated a global, always-on employee intranet from a legacy platform to <strong
-          >Unily</strong
-        >, preserving mission-critical functionality while modernizing the UX
-        and front-end architecture. I worked on a <strong
-          >four-developer team</strong
-        > and owned <strong>all UI customization</strong> and
-        <strong>custom-built functionality</strong>, extending the platform
-        through <strong>Angular Federated Modules</strong>.
+      <h3 class="text-xl font-semibold mb-3">Overview</h3>
+      <p class="mb-4">
+        This project modernized American Airlines' employee intranet
+        (Jetnet), a global portal used by employees across regions and time
+        zones. The migration required <strong>constant uptime</strong>,
+        careful preservation of existing integrations, and a clear strategy
+        for extending Unily beyond its out-of-the-box capabilities.
       </p>
-    </header>
+      <p class="mb-4">
+        In addition to platform migration and content transition, I
+        implemented a modular front-end approach that allowed us to deliver
+        enterprise-specific features safely and maintainably—without
+        compromising platform stability or future upgrade paths.
+      </p>
+    </section>
 
-    <!-- Project Content -->
-    <div class="prose prose-invert prose-slate max-w-none space-y-8">
-      <section
-        id="case-jetnet-migration"
-        class="case case-section first:mt-0 first:pt-0 first:border-t-0 pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
-      >
+    <section
+      id="context-and-challenges"
+      class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
+    >
+      <h3 class="text-xl font-semibold mb-3">Context &amp; Challenges</h3>
 
-        <section
-          id="overview"
-          class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
-        >
-          <h3 class="text-xl font-semibold mb-3">Overview</h3>
-          <p class="mb-4">
-            This project modernized American Airlines’ employee intranet
-            (Jetnet), a global portal used by employees across regions and time
-            zones. The migration required <strong>constant uptime</strong>,
-            careful preservation of existing integrations, and a clear strategy
-            for extending Unily beyond its out-of-the-box capabilities.
-          </p>
-          <p class="mb-4">
-            In addition to platform migration and content transition, I
-            implemented a modular front-end approach that allowed us to deliver
-            enterprise-specific features safely and maintainably—without
-            compromising platform stability or future upgrade paths.
-          </p>
-        </section>
+      <p class="mb-4">
+        Jetnet had grown organically over many years into a mission-critical
+        platform. The migration needed to maintain business continuity while
+        improving usability, performance, and maintainability.
+      </p>
 
-        <section
-          id="context-and-challenges"
-          class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
-        >
-          <h3 class="text-xl font-semibold mb-3">Context &amp; Challenges</h3>
+      <ul class="list-none space-y-3 mb-4 pl-0 ml-0">
+        <li>
+          <strong>Global scale and constant uptime:</strong> The portal served
+          employees worldwide, making downtime and broken workflows unacceptable.
+        </li>
+        <li>
+          <strong>Deep legacy integrations:</strong> Embedded tools and integrations
+          had to be preserved or replaced with feature parity.
+        </li>
+        <li>
+          <strong>Massive content footprint:</strong> Thousands of pages, articles,
+          and subsites required migration, validation, and link integrity.
+        </li>
+        <li>
+          <strong>Small team, high ownership:</strong> With a four-developer team,
+          I owned all UI customization and the design/implementation of custom
+          front-end modules.
+        </li>
+        <li>
+          <strong>Platform constraints:</strong> Unily provides strong baseline
+          features, but enterprise needs required extending the platform safely
+          while remaining upgrade-friendly.
+        </li>
+      </ul>
+    </section>
 
-          <p class="mb-4">
-            Jetnet had grown organically over many years into a mission-critical
-            platform. The migration needed to maintain business continuity while
-            improving usability, performance, and maintainability.
-          </p>
+    <section
+      id="solution-and-architecture"
+      class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
+    >
+      <h3 class="text-xl font-semibold mb-3">
+        Solution &amp; Architecture
+      </h3>
 
-          <ul class="list-none space-y-3 mb-4 pl-0 ml-0">
-            <li>
-              <strong>Global scale and constant uptime:</strong> The portal served
-              employees worldwide, making downtime and broken workflows unacceptable.
-            </li>
-            <li>
-              <strong>Deep legacy integrations:</strong> Embedded tools and integrations
-              had to be preserved or replaced with feature parity.
-            </li>
-            <li>
-              <strong>Massive content footprint:</strong> Thousands of pages, articles,
-              and subsites required migration, validation, and link integrity.
-            </li>
-            <li>
-              <strong>Small team, high ownership:</strong> With a four-developer team,
-              I owned all UI customization and the design/implementation of custom
-              front-end modules.
-            </li>
-            <li>
-              <strong>Platform constraints:</strong> Unily provides strong baseline
-              features, but enterprise needs required extending the platform safely
-              while remaining upgrade-friendly.
-            </li>
-          </ul>
-        </section>
+      <p class="mb-4">
+        The migration approach combined content transition and validation
+        with a front-end architecture designed to extend Unily without
+        fighting it. My work focused on UI customization, reusable UI
+        patterns, and a modular strategy for delivering enterprise-specific
+        features.
+      </p>
 
-        <section
-          id="solution-and-architecture"
-          class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
-        >
-          <h3 class="text-xl font-semibold mb-3">
-            Solution &amp; Architecture
-          </h3>
+      <ul class="list-none space-y-3 mb-4 pl-0 ml-0">
+        <li>
+          <strong>UI customization &amp; theming:</strong> Implemented comprehensive
+          UI updates aligned to branding, navigation patterns, and user expectations
+          to ease the transition.
+        </li>
+        <li>
+          <strong>Angular Federated Modules:</strong> Built independently deployable
+          modules to introduce new functionality beyond Unily's standard components
+          while preserving upgrade paths.
+        </li>
+        <li>
+          <strong>Migration collaboration:</strong> Worked with the team to migrate
+          and validate intranet content at scale, ensuring permissions, metadata,
+          and existing workflows continued to function.
+        </li>
+        <li>
+          <strong>Testing and rollout:</strong> Established validation practices
+          to ensure feature parity and consistent behavior across regions, devices,
+          and user roles.
+        </li>
+      </ul>
+    </section>
 
-          <p class="mb-4">
-            The migration approach combined content transition and validation
-            with a front-end architecture designed to extend Unily without
-            fighting it. My work focused on UI customization, reusable UI
-            patterns, and a modular strategy for delivering enterprise-specific
-            features.
-          </p>
+    <section
+      id="key-custom-modules"
+      class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-6"
+    >
+      <h3 class="text-xl font-semibold mb-3">Key Custom Modules</h3>
 
-          <ul class="list-none space-y-3 mb-4 pl-0 ml-0">
-            <li>
-              <strong>UI customization &amp; theming:</strong> Implemented comprehensive
-              UI updates aligned to branding, navigation patterns, and user expectations
-              to ease the transition.
-            </li>
-            <li>
-              <strong>Angular Federated Modules:</strong> Built independently deployable
-              modules to introduce new functionality beyond Unily’s standard components
-              while preserving upgrade paths.
-            </li>
-            <li>
-              <strong>Migration collaboration:</strong> Worked with the team to migrate
-              and validate intranet content at scale, ensuring permissions, metadata,
-              and existing workflows continued to function.
-            </li>
-            <li>
-              <strong>Testing and rollout:</strong> Established validation practices
-              to ensure feature parity and consistent behavior across regions, devices,
-              and user roles.
-            </li>
-          </ul>
-        </section>
+      <p class="mb-4">
+        A core part of the migration was delivering new capabilities through <strong
+          >Angular Federated Modules</strong
+        >. These modules allowed us to ship enterprise-specific features
+        independently, integrate securely with third-party services, and
+        keep the overall platform maintainable.
+      </p>
 
-        <section
-          id="key-custom-modules"
-          class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-6"
-        >
-          <h3 class="text-xl font-semibold mb-3">Key Custom Modules</h3>
+      <!-- Module 1: Brightcove -->
+      <section id="module-brightcove" class="space-y-4">
+        <h4 class="text-lg font-semibold">
+          Secure Streaming Video (Brightcove)
+        </h4>
+        <p class="mb-4">
+          Built a module that enables Corporate Communications to embed <strong
+            >secure Brightcove streaming video</strong
+          >
+          directly within intranet pages. The component supports consistent playback
+          UX, responsive layouts, and a repeatable publishing workflow for non-technical
+          editors.
+        </p>
 
-          <p class="mb-4">
-            A core part of the migration was delivering new capabilities through <strong
-              >Angular Federated Modules</strong
-            >. These modules allowed us to ship enterprise-specific features
-            independently, integrate securely with third-party services, and
-            keep the overall platform maintainable.
-          </p>
-
-          <!-- Module 1: Brightcove -->
-          <section id="module-brightcove" class="space-y-4">
-            <h4 class="text-lg font-semibold">
-              Secure Streaming Video (Brightcove)
-            </h4>
-            <p class="mb-4">
-              Built a module that enables Corporate Communications to embed <strong
-                >secure Brightcove streaming video</strong
-              >
-              directly within intranet pages. The component supports consistent playback
-              UX, responsive layouts, and a repeatable publishing workflow for non-technical
-              editors.
-            </p>
-
-            <!-- Media placeholder -->
-            <figure class="my-6">
-              <div class="aspect-video bg-gray-dark/30 overflow-hidden rounded">
-                {
-                  /*
-            Replace with your screenshot or video.
-            Example screenshot:
-            <img src={`${base}images/jetnet-brightcove-module.png`} alt="Brightcove video module embedded in intranet page" class="w-full h-full object-cover" />
-            Example video:
-            <video autoplay loop muted playsinline class="w-full h-full object-cover">
-              <source src={`${base}videos/jetnet-brightcove-module.mp4`} type="video/mp4" />
+        <figure class="my-6">
+          <div class="aspect-video bg-gray-dark/30 overflow-hidden rounded">
+            <video
+              autoplay
+              loop
+              muted
+              playsinline
+              class="w-full h-full object-cover"
+            >
+              <source
+                src={`${base}videos/unily-video.mp4`}
+                type="video/mp4"
+              />
             </video>
-          */
-                }
-              </div>
-              <figcaption class="mt-3 text-sm text-slate-400">
-                <strong>Brightcove streaming module.</strong> Secure video embedded
-                in-page with a consistent, editor-friendly publishing workflow.
-              </figcaption>
-            </figure>
-          </section>
-
-          <!-- Module 2: Pay & Benefits Calculator -->
-          <section id="module-pay-benefits" class="space-y-4">
-            <h4 class="text-lg font-semibold">
-              Region-Specific Pay &amp; Benefits Calculator
-            </h4>
-            <p class="mb-4">
-              Developed a module that provides region-specific pay and benefits
-              guidance based on employee context. The design emphasized clarity,
-              input validation, and maintainable configuration so updates could
-              be made as policies evolved.
-            </p>
-
-            <!-- Media placeholder -->
-            <figure class="my-6">
-              <div class="aspect-video bg-gray-dark/30 overflow-hidden rounded">
-                {
-                  /*
-            Replace with your screenshot or video.
-            <img src={`${base}images/jetnet-pay-benefits.png`} alt="Pay and benefits calculator module" class="w-full h-full object-cover" />
-          */
-                }
-              </div>
-              <figcaption class="mt-3 text-sm text-slate-400">
-                <strong>Pay &amp; benefits calculator.</strong> Region-aware UX designed
-                for clarity, accuracy, and maintainable configuration.
-              </figcaption>
-            </figure>
-          </section>
-
-          <!-- Module 3: LivePerson Chat -->
-          <section id="module-liveperson" class="space-y-4">
-            <h4 class="text-lg font-semibold">
-              Embedded Employee Chat (LivePerson)
-            </h4>
-            <p class="mb-4">
-              Implemented a module that embeds a LivePerson chat experience
-              within the intranet, enabling employees to access support and
-              communication channels without leaving the portal. The
-              implementation focused on reliable loading, safe script
-              integration, and consistent UX across pages.
-            </p>
-
-            <!-- Media placeholder -->
-            <figure class="my-6">
-              <div class="aspect-video bg-gray-dark/30 overflow-hidden rounded">
-                {
-                  /*
-            Replace with your screenshot or video.
-            <video autoplay loop muted playsinline class="w-full h-full object-cover">
-              <source src={`${base}videos/jetnet-liveperson.mp4`} type="video/mp4" />
-            </video>
-          */
-                }
-              </div>
-              <figcaption class="mt-3 text-sm text-slate-400">
-                <strong>LivePerson chat module.</strong> Embedded chat experience
-                integrated safely and consistently into the intranet UI.
-              </figcaption>
-            </figure>
-          </section>
-        </section>
-
-        <section
-          id="results-and-impact"
-          class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
-        >
-          <h3 class="text-xl font-semibold mb-3">Results &amp; Impact</h3>
-
-          <ul class="list-none space-y-3 mb-4 pl-0 ml-0">
-            <li>
-              <strong>Minimal disruption during migration:</strong> Completed the
-              platform transition while maintaining business continuity and preserving
-              critical workflows.
-            </li>
-            <li>
-              <strong>Improved usability and performance:</strong> Delivered a more
-              consistent mobile experience and cleaner, more maintainable UI.
-            </li>
-            <li>
-              <strong>Sustainable extensibility model:</strong> Angular Federated
-              Modules enabled independent delivery of enterprise features without
-              compromising upgrade paths.
-            </li>
-            <li>
-              <strong>Foundation for ongoing enhancements:</strong> Established an
-              architecture that supports iteration without reintroducing legacy complexity.
-            </li>
-          </ul>
-        </section>
-
-        <section
-          id="role-and-responsibilities"
-          class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
-        >
-          <h3 class="text-xl font-semibold mb-3">
-            Role &amp; Responsibilities
-          </h3>
-
-          <ul class="list-none space-y-3 mb-4 pl-0 ml-0">
-            <li>
-              <strong>UI customization ownership:</strong> Responsible for all intranet
-              UI customization, theming, and reusable UI patterns.
-            </li>
-            <li>
-              <strong>Federated module architecture:</strong> Designed and built Angular
-              Federated Modules to deliver enterprise-specific functionality beyond
-              Unily.
-            </li>
-            <li>
-              <strong>Custom module delivery:</strong> Implemented Brightcove secure
-              streaming, pay/benefits calculators, and LivePerson chat integrations.
-            </li>
-            <li>
-              <strong>Migration collaboration:</strong> Partnered with the team to
-              migrate and validate content, maintain link integrity, and preserve
-              workflows.
-            </li>
-            <li>
-              <strong>Quality and stability:</strong> Supported testing and rollout
-              practices aligned to uptime, global usage, and long-term maintainability.
-            </li>
-          </ul>
-        </section>
+          </div>
+          <figcaption class="mt-3 text-sm text-slate-400">
+            <strong>Brightcove streaming module.</strong> Secure video embedded
+            in-page with a consistent, editor-friendly publishing workflow.
+          </figcaption>
+        </figure>
       </section>
-    </div>
-  </article>
-</BaseLayout>
+
+      <!-- Module 2: Pay & Benefits Calculator -->
+      <section id="module-pay-benefits" class="space-y-4">
+        <h4 class="text-lg font-semibold">
+          Region-Specific Pay &amp; Benefits Calculator
+        </h4>
+        <p class="mb-4">
+          Developed a module that provides region-specific pay and benefits
+          guidance based on employee context. The design emphasized clarity,
+          input validation, and maintainable configuration so updates could
+          be made as policies evolved.
+        </p>
+
+        <figure class="my-6">
+          <div class="aspect-video bg-gray-dark/30 overflow-hidden rounded">
+            <video
+              autoplay
+              loop
+              muted
+              playsinline
+              class="w-full h-full object-cover"
+            >
+              <source
+                src={`${base}videos/unily-calc.mp4`}
+                type="video/mp4"
+              />
+            </video>
+          </div>
+          <figcaption class="mt-3 text-sm text-slate-400">
+            <strong>Pay &amp; benefits calculator.</strong> Region-aware UX designed
+            for clarity, accuracy, and maintainable configuration.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- Module 3: LivePerson Chat -->
+      <section id="module-liveperson" class="space-y-4">
+        <h4 class="text-lg font-semibold">
+          Embedded Employee Chat (LivePerson)
+        </h4>
+        <p class="mb-4">
+          Implemented a module that embeds a LivePerson chat experience
+          within the intranet, enabling employees to access support and
+          communication channels without leaving the portal. The
+          implementation focused on reliable loading, safe script
+          integration, and consistent UX across pages.
+        </p>
+
+        <!-- <figure class="my-6">
+          <div class="aspect-video bg-gray-dark/30 overflow-hidden rounded">
+          </div>
+          <figcaption class="mt-3 text-sm text-slate-400">
+            <strong>LivePerson chat module.</strong> Embedded chat experience
+            integrated safely and consistently into the intranet UI.
+          </figcaption>
+        </figure> -->
+      </section>
+    </section>
+
+    <section
+      id="results-and-impact"
+      class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
+    >
+      <h3 class="text-xl font-semibold mb-3">Results &amp; Impact</h3>
+
+      <ul class="list-none space-y-3 mb-4 pl-0 ml-0">
+        <li>
+          <strong>Minimal disruption during migration:</strong> Completed the
+          platform transition while maintaining business continuity and preserving
+          critical workflows.
+        </li>
+        <li>
+          <strong>Improved usability and performance:</strong> Delivered a more
+          consistent mobile experience and cleaner, more maintainable UI.
+        </li>
+        <li>
+          <strong>Sustainable extensibility model:</strong> Angular Federated
+          Modules enabled independent delivery of enterprise features without
+          compromising upgrade paths.
+        </li>
+        <li>
+          <strong>Foundation for ongoing enhancements:</strong> Established an
+          architecture that supports iteration without reintroducing legacy complexity.
+        </li>
+      </ul>
+    </section>
+
+    <section
+      id="role-and-responsibilities"
+      class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
+    >
+      <h3 class="text-xl font-semibold mb-3">
+        Role &amp; Responsibilities
+      </h3>
+
+      <ul class="list-none space-y-3 mb-4 pl-0 ml-0">
+        <li>
+          <strong>UI customization ownership:</strong> Responsible for all intranet
+          UI customization, theming, and reusable UI patterns.
+        </li>
+        <li>
+          <strong>Federated module architecture:</strong> Designed and built Angular
+          Federated Modules to deliver enterprise-specific functionality beyond
+          Unily.
+        </li>
+        <li>
+          <strong>Custom module delivery:</strong> Implemented Brightcove secure
+          streaming, pay/benefits calculators, and LivePerson chat integrations.
+        </li>
+        <li>
+          <strong>Migration collaboration:</strong> Partnered with the team to
+          migrate and validate content, maintain link integrity, and preserve
+          workflows.
+        </li>
+        <li>
+          <strong>Quality and stability:</strong> Supported testing and rollout
+          practices aligned to uptime, global usage, and long-term maintainability.
+        </li>
+      </ul>
+    </section>
+  </section>
+</ProjectLayout>

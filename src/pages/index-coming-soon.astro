@@ -1,0 +1,85 @@
+---
+// TEMPORARY: Coming Soon page is serving as the index
+// To switch back to main site:
+// 1. Delete this file (src/pages/index.astro)
+// 2. Rename src/pages/index-main.astro to src/pages/index.astro
+// 3. Rebuild and redeploy
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import RiveActionButton from "../components/RiveActionButton";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Coming Soon – Bryce Kennedy">
+  <div slot="hero">
+    <section class="min-h-screen flex items-center justify-center">
+      <style is:global>
+        #site-header {
+          display: none !important;
+        }
+      </style>
+      <div class="max-w-3xl mx-auto px-4 text-center space-y-8">
+        <div class="flex justify-center mb-8">
+          <div
+            class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-brand-orange overflow-hidden bg-surface-card"
+          >
+            <img
+              src={`${base}images/profile-large.jpg`}
+              alt="Bryce Kennedy"
+              loading="lazy"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="text-xs uppercase tracking-[0.25em] text-sky-300/80">
+            <span>UX Engineering · Frontend Development · Content Management Systems</span>
+          </div>
+
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight">
+            Bryce Kennedy
+          </h1>
+
+          <h2 class="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight text-slate-300">
+            Portfolio Coming Soon
+          </h2>
+
+          <p class="text-slate-400 max-w-xl mx-auto text-base md:text-lg pt-0">
+            I'm currently putting the finishing touches on my portfolio. Check back soon to see my latest work in UX engineering and frontend development.
+          </p>
+        </div>
+
+        <div
+          class="flex flex-col md:flex-row md:flex-wrap gap-6 text-sm justify-center pt-8 w-full"
+        >
+          <RiveActionButton
+            client:load
+            artboard="linkedin"
+            text="Connect on LinkedIn"
+            subtitle="linkedin.com/in/2kennedyb"
+            href="https://www.linkedin.com/in/2kennedyb"
+            variant="primary"
+            external
+          />
+          <RiveActionButton
+            client:load
+            artboard="email"
+            text="Get in touch"
+            subtitle="kennedybryce2@gmail.com"
+            href="mailto:kennedybryce2@gmail.com"
+          />
+          <RiveActionButton
+            client:load
+            artboard="linkedin"
+            text="Download Resume"
+            subtitle="PDF"
+            href={`${base}documents/Bryce_Kennedy_Resume_2026.pdf`}
+            download
+          />
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

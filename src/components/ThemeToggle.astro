@@ -1,0 +1,115 @@
+---
+// Theme Toggle Component - Floating button on right side of screen
+---
+
+<button
+  id="theme-toggle"
+  class="theme-toggle"
+  aria-label="Toggle light/dark theme"
+  title="Toggle theme"
+>
+  <!-- Sun icon (shown in dark mode) -->
+  <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle>
+    <line x1="12" y1="1" x2="12" y2="3"></line>
+    <line x1="12" y1="21" x2="12" y2="23"></line>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+    <line x1="1" y1="12" x2="3" y2="12"></line>
+    <line x1="21" y1="12" x2="23" y2="12"></line>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+  </svg>
+
+  <!-- Moon icon (shown in light mode) -->
+  <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+  </svg>
+</button>
+
+<style>
+  .theme-toggle {
+    position: fixed;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 50;
+
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--theme-border);
+    background-color: var(--theme-surface-card);
+    color: var(--theme-text-primary);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .theme-toggle:hover {
+    border-color: var(--theme-accent);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .theme-toggle:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+
+  /* Icon visibility based on theme */
+  .icon-sun {
+    display: block;
+  }
+
+  .icon-moon {
+    display: none;
+  }
+
+  [data-theme="light"] .icon-sun {
+    display: none;
+  }
+
+  [data-theme="light"] .icon-moon {
+    display: block;
+  }
+
+  /* Mobile positioning */
+  @media (max-width: 768px) {
+    .theme-toggle {
+      right: 0.75rem;
+      width: 40px;
+      height: 40px;
+    }
+  }
+</style>
+
+<script>
+  // Theme toggle functionality
+  function initThemeToggle() {
+    const toggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+
+    // Get saved theme or default to dark
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    html.setAttribute('data-theme', savedTheme);
+
+    toggle?.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  }
+
+  // Initialize on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initThemeToggle);
+  } else {
+    initThemeToggle();
+  }
+</script>

@@ -1,0 +1,187 @@
+---
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
+const base = import.meta.env.BASE_URL;
+
+const techIcons = [
+  { artboard: "astro", label: "Astro" },
+  { artboard: "react", label: "React" },
+  { artboard: "rive", label: "Rive" },
+  { artboard: "tailwind", label: "Tailwind" },
+];
+---
+
+<ProjectLayout
+  title="Portfolio Site – Bryce Kennedy"
+  projectTitle="Personal Portfolio Site"
+  description="Designed and built a modern, maintainable portfolio site as a living system—focused on long-form case studies, performance, and a workflow that supports rapid iteration and experimentation."
+  mediaSrc="images/portfolio-01.jpg"
+  techIcons={techIcons}
+>
+  <section
+    id="case-portfolio-site"
+    class="case case-section first:mt-0 first:pt-0 first:border-t-0 pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
+  >
+
+    <section
+      id="overview"
+      class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
+    >
+      <h3 class="text-xl font-semibold mb-3">Overview</h3>
+
+      <p class="mb-4">
+        This project is an ongoing effort to design and build my personal
+        portfolio site as more than a static brochure. The goal was to
+        create a site that clearly communicates my work, supports deep
+        technical case studies, and reflects how I approach UX engineering
+        and front-end architecture in real-world projects.
+      </p>
+
+      <p class="mb-4">
+        Because I controlled the full stack—from design decisions to
+        deployment—the portfolio became a practical sandbox for
+        experimenting with modern tooling, animation, and
+        <strong>AI-augmented development workflows</strong>.
+      </p>
+    </section>
+
+    <section
+      id="goals-and-constraints"
+      class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
+    >
+      <h3 class="text-xl font-semibold mb-3">Goals &amp; Constraints</h3>
+
+      <ul class="list-none space-y-3 mb-4 pl-0 ml-0">
+        <li>
+          <strong>Case study–first structure:</strong> Prioritize long-form, narrative
+          project breakdowns over shallow project grids.
+        </li>
+        <li>
+          <strong>Performance and clarity:</strong> Fast load times, readable
+          typography, and restrained visual design.
+        </li>
+        <li>
+          <strong>Maintainability:</strong> A structure that makes it easy to
+          add, revise, and evolve content without rewrites.
+        </li>
+        <li>
+          <strong>Room to experiment:</strong> Support animation, interactivity,
+          and emerging workflows without overengineering.
+        </li>
+      </ul>
+    </section>
+
+    <section
+      id="architecture-and-tooling"
+      class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
+    >
+      <h3 class="text-xl font-semibold mb-3">Architecture &amp; Tooling</h3>
+
+      <p class="mb-4">
+        The site is built with <strong>Astro</strong>, chosen for its static-first
+        approach, clean component model, and ability to layer in interactivity
+        only where it adds value. This keeps the site fast, predictable, and
+        easy to reason about.
+      </p>
+
+      <p class="mb-4">
+        Animated elements are created using <strong>Rive</strong>, allowing
+        motion to be treated as a reusable, state-driven component rather
+        than a collection of one-off effects.
+      </p>
+    </section>
+
+    <figure class="my-8">
+      <div class="aspect-video bg-gray-dark/30 overflow-hidden rounded">
+        <img
+          src={`${base}images/portfolio-02.jpg`}
+          alt="Component-driven layout and case study structure"
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <figcaption class="mt-3 text-sm text-slate-400">
+        <strong>Component-driven layout and case study structure.</strong>
+        Shared layouts and reusable sections make it easy to add new projects
+        and iterate on content without duplicating structure.
+      </figcaption>
+    </figure>
+
+    <section
+      id="ai-augmented-workflow"
+      class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
+    >
+      <h3 class="text-xl font-semibold mb-3">
+        AI-Augmented Development Workflow
+      </h3>
+
+      <p class="mb-4">
+        This project also served as an opportunity to refine my AI-augmented
+        development process. I used <strong>Claude Code</strong> alongside my
+        editor to accelerate setup, explore alternative implementations, and
+        iterate rapidly on both design and functionality.
+      </p>
+
+      <p class="mb-4">
+        Rather than treating AI as a code generator, I used it as a
+        collaborative tool—evaluating tradeoffs, refining architecture, and
+        stress-testing ideas quickly before committing them to the codebase.
+      </p>
+    </section>
+
+    <section
+      id="deployment-and-ci"
+      class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
+    >
+      <h3 class="text-xl font-semibold mb-3">Hosting &amp; Deployment</h3>
+
+      <p class="mb-4">
+        The site is hosted for free on <strong>Github Pages</strong> and
+        published via an automated CI/CD workflow using <strong>Github Actions</strong>.
+        Every merge to the main branch triggers a build and deployment,
+        keeping the live site in sync with ongoing development.
+      </p>
+
+      <p class="mb-4">
+        This setup mirrors the same deployment discipline I use on larger
+        projects—favoring automation, repeatability, and fast feedback.
+      </p>
+    </section>
+
+    <section
+      id="why-this-matters"
+      class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
+    >
+      <h3 class="text-xl font-semibold mb-3">
+        Why Include This Case Study
+      </h3>
+
+      <p class="mb-4">
+        While smaller in scope than enterprise projects, this portfolio
+        demonstrates how I approach problems when I own the entire system:
+        defining constraints, choosing appropriate tools, balancing UX with
+        performance, and iterating intentionally.
+      </p>
+
+      <p class="mb-4">
+        It reflects the same principles I apply to large, complex
+        platforms—just at a more personal scale.
+      </p>
+    </section>
+
+    <section
+      id="role-and-responsibilities"
+      class="case-section pt-8 mt-8 border-t border-gray-dark/20 space-y-4"
+    >
+      <h3 class="text-xl font-semibold mb-3">
+        Role &amp; Responsibilities
+      </h3>
+
+      <ul class="list-none space-y-3 mb-4 pl-0 ml-0">
+        <li>UX and visual design</li>
+        <li>Front-end architecture and implementation</li>
+        <li>Animation and interaction design</li>
+        <li>AI-augmented development and iteration</li>
+        <li>CI/CD setup and deployment automation</li>
+      </ul>
+    </section>
+  </section>
+</ProjectLayout>

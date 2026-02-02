@@ -1,0 +1,67 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import TechIconRive from "../components/TechIconRive";
+import RiveBackButton from "../components/RiveBackButton";
+
+interface Props {
+  title: string;
+  projectTitle: string;
+  description: string;
+  mediaSrc: string;
+  techIcons: Array<{ artboard: string; label: string }>;
+}
+
+const { title, projectTitle, description, mediaSrc, techIcons } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+// Determine if media is an image or video based on extension
+const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg'];
+const isImage = imageExtensions.some(ext => mediaSrc.toLowerCase().endsWith(ext));
+---
+
+<BaseLayout title={title}>
+  <article class="max-w-4xl mx-auto px-4 pt-40 pb-16 md:pt-44 md:pb-20">
+    <!-- Back Navigation -->
+    <RiveBackButton client:load href="../" />
+
+    <!-- Project Header -->
+    <header class="space-y-4 mb-12">
+      <h1 class="text-3xl md:text-4xl font-semibold">
+        {projectTitle}
+      </h1>
+
+      <div class="flex flex-wrap gap-3 mb-4">
+        {techIcons.map(({ artboard, label }) => (
+          <TechIconRive client:load artboard={artboard} label={label} />
+        ))}
+      </div>
+
+      <div class="aspect-video bg-gray-dark/30 overflow-hidden">
+        {isImage ? (
+          <img
+            src={`${base}${mediaSrc}`}
+            alt={projectTitle}
+            class="w-full h-full object-cover"
+          />
+        ) : (
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            class="w-full h-full object-cover"
+          >
+            <source src={`${base}${mediaSrc}`} type="video/mp4" />
+          </video>
+        )}
+      </div>
+
+      <p class="text-lg text-slate-300" set:html={description} />
+    </header>
+
+    <!-- Project Content -->
+    <div class="prose prose-invert prose-slate mx-auto max-w-3xl space-y-8 leading-relaxed text-lg">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>

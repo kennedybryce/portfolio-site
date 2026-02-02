@@ -9,17 +9,19 @@ interface RiveIconButtonProps {
   href?: string;
   label?: string;
   className?: string;
+  themeAware?: boolean;
 }
 
 export default function RiveIconButton({
   artboard,
-  stateMachine = "HoverClick",
-  clickInputName = "Click",
+  stateMachine = "state-machine-01",
+  clickInputName = "click",
   href,
   label = artboard,
   className = "",
+  themeAware = true,
 }: RiveIconButtonProps) {
-  const src = `${import.meta.env.BASE_URL}animations/icons.riv`;
+  const src = `${import.meta.env.BASE_URL}icons/portfolio-icons.riv`;
 
   const { rive, RiveComponent } = useRive({
     src,
@@ -57,10 +59,12 @@ export default function RiveIconButton({
     <button
       type="button"
       onClick={handleClick}
-      className={`inline-flex items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 hover:border-sky-400/80 hover:bg-slate-800/80 transition p-2 w-12 h-12 md:w-14 md:h-14 ${className}`}
+      className={`inline-flex items-center justify-center rounded-full border border-gray-dark/70 bg-surface-card hover:border-brand-orange/50 transition p-2 w-12 h-12 md:w-14 md:h-14 ${className}`}
       aria-label={label}
     >
-      <RiveComponent style={{ width: "100%", height: "100%" }} />
+      <div className={themeAware ? "brightness-0 invert w-full h-full" : "w-full h-full"}>
+        <RiveComponent style={{ width: "100%", height: "100%" }} />
+      </div>
     </button>
   );
 }

@@ -2,7 +2,9 @@
 import "../styles/global.css";
 import AnimatedGradientBackground from "../components/AnimatedGradientBackground.astro";
 import BackgroundGlow from "../components/BackgroundGlow.astro";
-// import ThemeToggle from "../components/ThemeToggle";
+import RiveIcon from "../components/RiveIcon";
+import RiveCircuitBackground from "../components/RiveCircuitBackground";
+import Footer from "../components/Footer.astro";
 
 interface Props {
   title?: string;
@@ -12,12 +14,18 @@ const { title = "Bryce Kennedy – Portfolio" } = Astro.props;
 const base = import.meta.env.BASE_URL;
 ---
 
-<html lang="en" class="dark">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <title>{title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <!-- Prevent theme flash on page load -->
+    <script is:inline>
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
     <style>
       @view-transition {
         navigation: auto;
@@ -124,7 +132,9 @@ const base = import.meta.env.BASE_URL;
     </style>
   </head>
   <body class="min-h-screen bg-surface-dark text-text-light">
-    <AnimatedGradientBackground />
+    <!-- Circuit background animation -->
+    <RiveCircuitBackground client:load opacity={0.15} height="100vh" />
+
     <div class="min-h-screen flex flex-col">
       <header
         class="site-header border-b border-gray-dark/70 bg-surface-dark/90 backdrop-blur transition-all"
@@ -176,39 +186,39 @@ const base = import.meta.env.BASE_URL;
                 href="https://www.linkedin.com/in/2kennedyb"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="p-2 rounded-full border border-brand-orange bg-brand-orange hover:opacity-90 transition"
                 aria-label="LinkedIn"
                 title="Connect on LinkedIn"
               >
-                <img
-                  src={`${base}icons/linkedin-svgrepo-com.svg`}
-                  alt=""
-                  class="w-4 h-4 brightness-0 invert"
+                <RiveIcon
+                  client:load
+                  artboard="linkedin"
+                  size="xs"
+                  label="LinkedIn"
                 />
               </a>
               <a
                 href="mailto:kennedybryce2@gmail.com"
-                class="p-2 rounded-full border border-white hover:border-brand-orange transition"
                 aria-label="Email"
                 title="Get in touch"
               >
-                <img
-                  src={`${base}icons/email-svgrepo-com.svg`}
-                  alt=""
-                  class="w-4 h-4 brightness-0 invert"
+                <RiveIcon
+                  client:load
+                  artboard="email"
+                  size="xs"
+                  label="Email"
                 />
               </a>
               <a
                 href={`${base}documents/Bryce_Kennedy_Resume_2026.pdf`}
                 download
-                class="p-2 rounded-full border border-white hover:border-brand-orange transition"
                 aria-label="Resume"
                 title="Download Resume"
               >
-                <img
-                  src={`${base}icons/resume-portfolio-svgrepo-com.svg`}
-                  alt=""
-                  class="w-4 h-4 brightness-0 invert"
+                <RiveIcon
+                  client:load
+                  artboard="resume"
+                  size="xs"
+                  label="Email"
                 />
               </a>
             </nav>
@@ -219,64 +229,11 @@ const base = import.meta.env.BASE_URL;
       <!-- Hero section from page -->
       <slot name="hero" />
 
-      <main class="flex-1">
+      <main class="flex-1 pb-16">
         <slot />
       </main>
 
-      <footer class="border-t border-gray-dark/70 py-4 text-xs text-text-muted">
-        <div class="max-w-5xl mx-auto px-4 flex justify-between items-center">
-          <span>© {new Date().getFullYear()} Bryce Kennedy</span>
-
-          <span class="flex items-center gap-3">
-            <span class="text-text-muted mr-1">Built with</span>
-
-            <a
-              href="https://astro.build"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-text-muted hover:text-brand-orange transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2 focus-visible:ring-offset-surface-dark"
-              aria-label="Astro"
-              title="Astro"
-            >
-              <img
-                src={`${base}icons/astro-svgrepo-com.svg`}
-                alt="Astro"
-                class="w-6 h-6 brightness-0 invert"
-              />
-            </a>
-
-            <a
-              href="https://react.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-text-muted hover:text-brand-orange transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2 focus-visible:ring-offset-surface-dark"
-              aria-label="React"
-              title="React"
-            >
-              <img
-                src={`${base}icons/react-svgrepo-com.svg`}
-                alt="React"
-                class="w-6 h-6 brightness-0 invert"
-              />
-            </a>
-
-            <a
-              href="https://rive.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-text-muted hover:text-brand-orange transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2 focus-visible:ring-offset-surface-dark"
-              aria-label="Rive"
-              title="Rive"
-            >
-              <img
-                src={`${base}icons/rive_square.svg`}
-                alt="Rive"
-                class="w-6 h-6 brightness-0 invert"
-              />
-            </a>
-          </span>
-        </div>
-      </footer>
+      <Footer />
     </div>
 
     <script>

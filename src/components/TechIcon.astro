@@ -1,0 +1,36 @@
+---
+interface Props {
+  icon: string;
+  label: string;
+  size?: "small" | "large";
+}
+
+const { icon, label, size = "small" } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+const sizeClasses = {
+  small: {
+    container: "p-2",
+    icon: "w-5 h-5",
+    label: "text-[10px]",
+  },
+  large: {
+    container: "p-3",
+    icon: "w-8 h-8",
+    label: "text-xs",
+  },
+};
+
+const classes = sizeClasses[size];
+---
+
+<div class={`flex flex-col items-center ${size === "large" ? "gap-2" : "gap-1"}`}>
+  <div class={`${classes.container} rounded-full border border-gray-dark/70 bg-surface-card`}>
+    <img
+      src={`${base}icons/${icon}`}
+      alt=""
+      class={`${classes.icon} brightness-0 invert`}
+    />
+  </div>
+  <span class={`${classes.label} text-slate-400`}>{label}</span>
+</div>
