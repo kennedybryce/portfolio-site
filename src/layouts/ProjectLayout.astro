@@ -22,7 +22,7 @@ const isImage = imageExtensions.some(ext => mediaSrc.toLowerCase().endsWith(ext)
 <BaseLayout title={title}>
   <article class="max-w-4xl mx-auto px-4 pt-40 pb-16 md:pt-44 md:pb-20">
     <!-- Back Navigation -->
-    <RiveBackButton client:load href="../" />
+    <RiveBackButton client:load href={base} />
 
     <!-- Project Header -->
     <header class="space-y-4 mb-12">
